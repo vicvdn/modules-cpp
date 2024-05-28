@@ -58,3 +58,65 @@ int main() {
 }
 ```
 
+**3- Class and instance**
+
+A class in c++ is a user-defined data type that has data members (variables) and member functions (methods). Classes define properties and behaviors of those entities. An instance of a class is an object that is created based on the class definition.
+
+Example:
+
+```cpp
+#include <iostream>
+
+class MyClass {
+public:
+    void doSomething() {
+        std::cout << "Doing something..." << std::endl;
+    }
+};
+
+int main() {
+    MyClass myObject;
+
+    myObject.doSomething();
+
+    return 0;
+}
+```
+
+In the example above, we did not use a constructor nor a destructor. The compiler will generate a default constructor and a default destructor for us. We can also define our own constructor and destructor. It works as such :
+    
+```cpp 
+class MyClass {
+public:
+    MyClass() {
+        std::cout << "Constructor called" << std::endl;
+    }
+
+    ~MyClass() {
+        std::cout << "Destructor called" << std::endl;
+    }
+
+    void doSomething() {
+        std::cout << "Doing something..." << std::endl;
+    }
+};
+```
+The constructor and destructor can also be defined outside of the class definition. We can then include the .h/.hpp file in a separate cpp file and define them as such:
+
+```cpp
+#include <iostream>
+#include "MyClass.h"
+
+MyClass::MyClass() {
+    std::cout << "Constructor called" << std::endl;
+}
+
+MyClass::~MyClass() {
+    std::cout << "Destructor called" << std::endl;
+}
+```
+
+## External resources
+
+- [Public/Private access specfiers within classes definitions](https://www.youtube.com/watch?v=pnhGOznp0UM)
+
