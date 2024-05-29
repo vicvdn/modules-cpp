@@ -119,4 +119,4 @@ MyClass::~MyClass() {
 ## External resources
 
 - [Public/Private access specfiers within classes definitions](https://www.youtube.com/watch?v=pnhGOznp0UM)
-
+- [String use in c++ handbook](https://www.learncpp.com/cpp-tutorial/introduction-to-stdstring/)

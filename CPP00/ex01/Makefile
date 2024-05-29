@@ -6,14 +6,14 @@
 #    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 15:47:47 by vvaudain          #+#    #+#              #
-#    Updated: 2024/05/28 16:49:52 by vvaudain         ###   ########.fr        #
+#    Updated: 2024/05/29 13:29:35 by vvaudain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Setup
 NAME 		:=	phonebook
 CC			:=	c++
-CFLAGS		:=	-Wall -Wextra -Werror -std=c++98
+CFLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g3
 
 # Colors
 DEF_COLOR	:=	\033[0;39m
@@ -21,7 +21,8 @@ GREEN 		:=	\033[0;92m
 CYAN 		:=	\033[0;96m
 
 # Sources and Objects
-SRC			:= main.cpp
+SRC			:= main.cpp \
+				Contact.cpp
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
 
