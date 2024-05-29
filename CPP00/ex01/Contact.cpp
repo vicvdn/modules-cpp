@@ -6,34 +6,39 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:29:34 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/05/29 12:21:34 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:36:10 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 #include <limits>
 
-Contact::Contact(void)
+Contact::Contact(){
+}
+
+Contact::Contact(std::string n1, std::string n2, std::string sur, int nb, std::string secret) : first_name(n1),
+last_name(n2), nickname(sur), phone_number(nb), darkest_secret(secret) 
 {
-	std::cout << "Enter first name: " << std::endl;
-	std::string name1;
-	std::getline(std::cin >> std::ws, name1);
-	std::cout << "Enter last name: " << std::endl;
-	std::string name2;
-	std::getline(std::cin >> std::ws, name2);
-	std::cout << "Enter nickname: " << std::endl;
-	std::string sur;
-	std::getline(std::cin >> std::ws, sur);
-	SetName(name1, name2, sur);
-	std::cout << "Enter phone number: " << std::endl;
-	int	number;
-	std::cin >> number;
-	SetNumber(number);
-	std::cout << "Enter your darkest secret: " << std::endl;
-	std::string secret;
-	std::getline(std::cin >> std::ws, secret);
-	SetSecret(secret);
-	std::cout << "This is the Contact constructor" << std::endl;
+	// std::cout << "Enter first name: " << std::endl;
+	// std::string name1;
+	// std::getline(std::cin >> std::ws, name1);
+	// std::cout << "Enter last name: " << std::endl;
+	// std::string name2;
+	// std::getline(std::cin >> std::ws, name2);
+	// std::cout << "Enter nickname: " << std::endl;
+	// std::string sur;
+	// std::getline(std::cin >> std::ws, sur);
+	// SetName(name1, name2, sur);
+	// std::cout << "Enter phone number: " << std::endl;
+	// int	number;
+	// std::cin >> number;
+	// SetNumber(number);
+	// std::cout << "Enter your darkest secret: " << std::endl;
+	// std::string secret;
+	// std::getline(std::cin >> std::ws, secret);
+	// SetSecret(secret);
+	std::cout << phone_number << std::endl;
+	std::cout << last_name << std::endl;
 	return ;
 }
 

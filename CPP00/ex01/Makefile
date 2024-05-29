@@ -6,7 +6,7 @@
 #    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 15:47:47 by vvaudain          #+#    #+#              #
-#    Updated: 2024/05/29 13:29:35 by vvaudain         ###   ########.fr        #
+#    Updated: 2024/05/29 16:05:22 by vvaudain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ CYAN 		:=	\033[0;96m
 
 # Sources and Objects
 SRC			:= main.cpp \
-				Contact.cpp
+				Contact.cpp \
+				# Phonebook.cpp
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
 
