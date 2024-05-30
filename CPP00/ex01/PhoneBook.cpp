@@ -6,16 +6,12 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:52:36 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/05/30 15:20:28 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:58:47 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
-// void	SetPhonebookContact(Phonebook phonebook, Contact person, int index)
-// {
-// 	phonebook.SetList(index, person); 
-// }
+#include "Contact.hpp"
 
 void	FormatColumn(std::string to_print, int last){
 	
@@ -23,17 +19,14 @@ void	FormatColumn(std::string to_print, int last){
 	int	space_nb = 0;
 
 	if (len < 10){
-		std::cout << to_print;
 		space_nb = 10 - len;
-		if (last != 1) {
-			for (int i = 0; i < space_nb; i++)
-				std::cout << " ";
+		for (int i = 0; i < space_nb; i++) {
+			std::cout << " ";
 		}
-		else {
-			for (int i = 0; i < space_nb - 1; i++)
-				std::cout << " ";
-			std::cout << " " << std::endl;
-		}
+		if (last == 1)
+			std::cout << to_print << std::endl;
+		else
+			std::cout << to_print;
 	}
 	if (len >= 10){
 		if (last != 1) {
@@ -77,17 +70,51 @@ void	PrintIndex(int i)
 
 void	Phonebook::IncreaseAmount(void){
 	this->contact_amount++;
-	std::cout << this->contact_amount <<std::endl;
+}
+
+void	PrintContact(Contact person){
+	std::cout << person.GetFName() << std::endl;
+	std::cout << person.GetLName() << std::endl;
+	std::cout << person.GetNName() << std::endl;
+	std::cout << person.GetNum() << std::endl;
+	std::cout << person.GetSecret() << std::endl;
+}
+
+void	HandleContactInfo(Phonebook instance, std::string index){
+	if (index == "1")
+		PrintContact(instance.GetContact(0));
+	else if (index == "2")
+		PrintContact(instance.GetContact(1));
+	else if (index == "3")
+		PrintContact(instance.GetContact(2));
+	else if (index == "4")
+		PrintContact(instance.GetContact(3));
+	else if (index == "5")
+		PrintContact(instance.GetContact(4));
+	else if (index == "6")
+		PrintContact(instance.GetContact(5));
+	else if (index == "7")
+		PrintContact(instance.GetContact(6));
+	else if (index == "8")
+		PrintContact(instance.GetContact(7));
+	else
+		std::cout << "This index does not exist yet or is too high!" << std::endl;
 }
 
 void	Phonebook::PrintTable(Phonebook instance) const{
+	std::string	index_to_print;
+
 	PrintHeader();
-	for(int i = 0; i < this->contact_amount; i++){
+	for(int i = 0; i < instance.contact_amount && i < instance.contact_limit; i++){
 		PrintIndex(i);
-		FormatColumn(instance.GetContact(i + 1).GetFName(), 0);
-		FormatColumn(instance.GetContact(i + 1).GetLName(), 0);
-		FormatColumn(instance.GetContact(i + 1).GetNName(), 1);
+		FormatColumn(instance.GetContact(i).GetFName(), 0);
+		FormatColumn(instance.GetContact(i).GetLName(), 0);
+		FormatColumn(instance.GetContact(i).GetNName(), 1);
 	}
+	std::cout << "Which contact info do you want? Index :" << std::endl;
+	std::getline(std::cin >> std::ws, index_to_print);
+	HandleContactInfo(instance, index_to_print);
+	
 }
 
 Phonebook::Phonebook(void) : contact_limit(8) {
@@ -96,6 +123,5 @@ Phonebook::Phonebook(void) : contact_limit(8) {
 }
 
 Phonebook::~Phonebook(void) {
-	std::cout << "This is the destructor" << std::endl;
 	return ;
 }

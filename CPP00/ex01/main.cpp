@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:01:58 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/05/30 12:45:09 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:58:19 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ Contact	CreateContact()
 int	main(void) {
 	Phonebook	instance;
 	std::string	input;
-	int			index = 1;
+	int			index = 0;
 
+	instance.SetLim(8);
 	while (1)
 	{
 		std::cout << "This is the PhoneBook! Chosse between ADD, SEARCH or EXIT options"  << std::endl;
@@ -53,17 +54,13 @@ int	main(void) {
 		else if (input == "ADD")
 		{
 			if (index == instance.GetLim())
-				index = 1;
+				index = 0;
 			instance.AddContact(index, CreateContact());
 			instance.IncreaseAmount();
 			index++;
 		}
-		else if (input == "SEARCH")
-		{
-			//print toute la liste des contacts sous forme de tableau
+		else if (input == "SEARCH") {
 			instance.PrintTable(instance);
-			//demande d'entrer l'index du contact a imprimer
-			//afficher les infos du contact (1 info par ligne)
 		}
 	}
 	return 0;
