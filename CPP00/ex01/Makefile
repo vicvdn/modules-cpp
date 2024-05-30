@@ -6,7 +6,7 @@
 #    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/28 15:47:47 by vvaudain          #+#    #+#              #
-#    Updated: 2024/05/29 16:05:22 by vvaudain         ###   ########.fr        #
+#    Updated: 2024/05/30 11:55:57 by vvaudain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@
 NAME 		:=	phonebook
 CC			:=	c++
 CFLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g3
-
+# INC			:= Phonebook.hpp\
+# 				Contact.hpp
 # Colors
 DEF_COLOR	:=	\033[0;39m
 GREEN 		:=	\033[0;92m
@@ -23,7 +24,7 @@ CYAN 		:=	\033[0;96m
 # Sources and Objects
 SRC			:= main.cpp \
 				Contact.cpp \
-				# Phonebook.cpp
+				PhoneBook.cpp
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
 

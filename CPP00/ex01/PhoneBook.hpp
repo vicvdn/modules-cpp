@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 15:52:34 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/05/29 17:22:40 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/05/30 11:55:37 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,11 @@ public:
 		this->list[index] = person;
 		return ;
 	}
+	void	PrintTable(void) const;
 	int	GetLim(void){
 		return (contact_limit);
 	}
 	// void	SetPhonebookContact(Phonebook phonebook, Contact person, int index);
 };
-
-Phonebook::Phonebook(void) : contact_limit(8) {
-	contact_amount = 0;
-	return ;
-}
-
-Phonebook::~Phonebook(void) {
-	std::cout << "This is the destructor" << std::endl;
-	return ;
-}
 
 #endif

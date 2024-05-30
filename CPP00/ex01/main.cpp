@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:01:58 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/05/29 17:10:58 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/05/30 11:40:02 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ Contact	CreateContact()
 	std::string sur;
 	std::getline(std::cin >> std::ws, sur);
 	std::cout << "Enter phone number: " << std::endl;
-	int	number;
-	std::cin >> number;
+	std::string	number;
+	std::getline(std::cin >> std::ws, number);
 	std::cout << "Enter your darkest secret: " << std::endl;
 	std::string secret;
 	std::getline(std::cin >> std::ws, secret);
@@ -39,9 +39,9 @@ int	main(void) {
 	std::string	input;
 	int			index = 1;
 
-	std::cout << "This is the PhoneBook! Chosse between ADD, SEARCH or EXIT options"  << std::endl;
 	while (1)
 	{
+		std::cout << "This is the PhoneBook! Chosse between ADD, SEARCH or EXIT options"  << std::endl;
 		if (std::cin.eof())
 			return 0;
 		getline(std::cin, input);
@@ -56,15 +56,13 @@ int	main(void) {
 				index = 1;
 			instance.SetList(index, CreateContact());
 			index++;
-			// if (index == 1)
-			// 	instance.contact1()
-			// SetPhonebookContact(CreateContact(), index);
-			// Contact 	person;
-			
 		}
 		else if (input == "SEARCH")
 		{
-			
+			//print toute la liste des contacts sous forme de tableau
+			instance.PrintTable();
+			//demande d'entrer l'index du contact a imprimer
+			//afficher les infos du contact (1 info par ligne)
 		}
 	}
 	return 0;
