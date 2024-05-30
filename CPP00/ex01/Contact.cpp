@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 11:29:34 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/05/30 11:34:41 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:18:35 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ last_name(n2), nickname(sur), phone_number(nb), darkest_secret(secret)
 
 Contact::~Contact()
 {
-	std::cout << "This is the Contact destructor" << std::endl;
+	// std::cout << "This is the Contact destructor" << std::endl;
 	return ;
 }
 

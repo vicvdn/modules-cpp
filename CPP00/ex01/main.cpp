@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:01:58 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/05/30 11:40:02 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/05/30 12:45:09 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,14 @@ int	main(void) {
 		{
 			if (index == instance.GetLim())
 				index = 1;
-			instance.SetList(index, CreateContact());
+			instance.AddContact(index, CreateContact());
+			instance.IncreaseAmount();
 			index++;
 		}
 		else if (input == "SEARCH")
 		{
 			//print toute la liste des contacts sous forme de tableau
-			instance.PrintTable();
+			instance.PrintTable(instance);
 			//demande d'entrer l'index du contact a imprimer
 			//afficher les infos du contact (1 info par ligne)
 		}

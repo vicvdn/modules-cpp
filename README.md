@@ -120,3 +120,10 @@ MyClass::~MyClass() {
 
 - [Public/Private access specfiers within classes definitions](https://www.youtube.com/watch?v=pnhGOznp0UM)
 - [String use in c++ handbook](https://www.learncpp.com/cpp-tutorial/introduction-to-stdstring/)
+
+
+## Useful functions
+
+- **substr(start index, nb of chars)** : extracts the substring from the start index for the number of characters specified
+
+- **size()** : returns the size of the string
