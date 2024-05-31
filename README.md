@@ -127,3 +127,9 @@ MyClass::~MyClass() {
 - **substr(start index, nb of chars)** : extracts the substring from the start index for the number of characters specified
 
 - **size()** : returns the size of the string
+
+## Remarks
+
+- In C++, non-static member variables cannot be defined or initialized outside of the class declaration or its member function definitions. Non-static member variables belong to individual instances of the class, so they need to be defined within the class declaration itself or initialized within constructors. 
+
+- In C++, the default access specifier for a class is private. This means that if you do not specify an access specifier for a class, all its members will be private by default.
