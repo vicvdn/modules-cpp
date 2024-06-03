@@ -133,3 +133,30 @@ MyClass::~MyClass() {
 - In C++, non-static member variables cannot be defined or initialized outside of the class declaration or its member function definitions. Non-static member variables belong to individual instances of the class, so they need to be defined within the class declaration itself or initialized within constructors. 
 
 - In C++, the default access specifier for a class is private. This means that if you do not specify an access specifier for a class, all its members will be private by default.
+
+- to free an allocated array of objects you do as such: 
+
+```cpp
+
+Zombie*	zombieHorde( int N, std::string name){
+	Zombie*	horde = new Zombie[N];
+	
+	for (int i = 0; i < N; i++) {
+		horde[i] = Zombie(name);
+	}
+	return (horde);
+}
+
+int	main(void) {
+	Zombie* 	horde;
+	int			N = 5;
+	std::string	name = "crackos";
+
+	horde = zombieHorde(N, name);
+	for (int i = 0; i < N; i++) {
+		horde[i].announce();
+	}
+	delete[] horde; //necessary [] otherwise segfault
+	return 0;
+}
+```
