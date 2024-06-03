@@ -6,7 +6,7 @@
 #    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 15:55:32 by vvaudain          #+#    #+#              #
-#    Updated: 2024/05/31 15:58:55 by vvaudain         ###   ########.fr        #
+#    Updated: 2024/06/03 14:33:23 by vvaudain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,10 @@ GREEN 		:=	\033[0;92m
 CYAN 		:=	\033[0;96m
 
 # Sources and Objects
-SRC			:= 
+SRC			:= main.cpp \
+				Zombie.cpp \
+				newZombie.cpp \
+				randomChump.cpp
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
 
