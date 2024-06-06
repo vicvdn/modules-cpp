@@ -121,6 +121,7 @@ MyClass::~MyClass() {
 - [Public/Private access specfiers within classes definitions](https://www.youtube.com/watch?v=pnhGOznp0UM)
 - [String use in c++ handbook](https://www.learncpp.com/cpp-tutorial/introduction-to-stdstring/)
 - [Poitners and references in C++ (section 4)](https://cpp.developpez.com/cours/cpp/?page=page_6)
+- [Excellent documentation on std::string](https://perso.isima.fr/loic/cpp/string.fr.php)
 
 ## Useful functions
 
@@ -160,3 +161,9 @@ int	main(void) {
 	return 0;
 }
 ```
+
+## CPP01
+
+# ex04:
+- Understand how to open a file in c++ and read its content
+- Understand how to write to a file in c++
