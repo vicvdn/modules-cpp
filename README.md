@@ -30,7 +30,7 @@ private:
 };
 ```
 
-## Videos cpp - intra
+## Important Notions
 
 **1- Les Namespaces:**
 
@@ -116,6 +116,59 @@ MyClass::~MyClass() {
 }
 ```
 
+**4- Pointers and references**
+
+Pointers and references are two ways to work with memory addresses in C++. A pointer is a variable that stores the memory address of another variable. A reference is an alias for another variable. Pointers and references are used to pass variables by reference, to work with dynamic memory, and to create data structures like linked lists and trees.
+
+Example:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int x = 42;
+    int* ptr = &x; // Pointer to x
+    int& ref = x; // Reference to x
+
+    std::cout << "x = " << x << std::endl;
+    std::cout << "ptr = " << *ptr << std::endl;
+    std::cout << "ref = " << ref << std::endl;
+
+    *ptr = 21; // Change the value of x through the pointer
+    ref = 84; // Change the value of x through the reference
+
+    std::cout << "x = " << x << std::endl;
+
+    return 0;
+}
+```
+
+**5- The canonical form of Coplien**
+
+The canonical form of Coplien is a way to define a class in C++. It consists of defining the public interface first, followed by the private data members. It also includes the declaration of a constructor, a destructor, a copy constructor, and an assignment operator. This form helps to ensure that the class is well-structured and follows best practices.
+
+Example:
+
+```cpp
+class MyClass {
+public:
+    MyClass(); // Constructor
+    ~MyClass(); // Destructor
+    MyClass(const MyClass& other); // Copy constructor
+    MyClass& operator=(const MyClass& rhs); // Assignment operator
+};
+```
+
+- **Constructor**: A constructor is a special member function that is called when an object is created. It is used to initialize the object's data members and allocate any necessary resources.
+- **Destructor**: A destructor is a special member function that is called when an object is destroyed. It is used to release any resources that were allocated by the object.
+- **Copy constructor**: A copy constructor is a special member function that is called when an object is copied. It is used to create a new object that is a copy of an existing object.
+- **Assignment operator**: An assignment operator is a special member function that is called when an object is assigned to another object. It is used to copy the data members of one object to another object.
+
+**6- Ad-hoc Polymorphism**
+
+Ad-hoc polymorphism or function overloading is a feature of C++ that allows multiple functions with the same name but different parameter lists to be defined in the same scope. This allows the same function name to be used for different types of arguments, providing a more flexible and expressive way to define functions.
+
+
 ## External resources
 
 - [Public/Private access specfiers within classes definitions](https://www.youtube.com/watch?v=pnhGOznp0UM)
@@ -164,6 +217,34 @@ int	main(void) {
 
 ## CPP01
 
-# ex04:
+### ex04:
 - Understand how to open a file in c++ and read its content
 - Understand how to write to a file in c++
+
+### ex05:
+- Understand how pointers to function work in c++ mostly
+
+### ex06:
+- Discover switch case in c++
+
+## CPP02
+
+### ex00:
+
+- **Fixed point numbers** are numbers that have a fixed number of digits after the decimal point. They are used to represent fractional numbers in a fixed-point format. Fixed-point numbers are commonly used in embedded systems and real-time applications where floating-point arithmetic is not supported or is too slow. *Example: money is a fixed-point number with 2 decimal places.*
+
+- To define a static constant integer in C++ to store the number of bits of the fractional part with a literal value of 8, you can use the const keyword to declare a static constant. Here is an example of code:
+
+```cpp
+class SomeClass {
+public:
+    static const int FRACTIONAL_BITS = 8;
+};
+```
+In this example:
+
+```static``` means that the variable belongs to the class and not to instances of the class.
+const means that the value of the variable cannot be modified after its initialization.
+```int FRACTIONAL_BITS = 8``` initializes the variable with the literal value 8.
+
+You can access this constant using ```SomeClass::FRACTIONAL_BITS``` without needing to instantiate SomeClass.
