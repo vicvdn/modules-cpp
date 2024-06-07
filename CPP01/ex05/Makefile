@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ubuntu <ubuntu@student.42.fr>              +#+  +:+       +#+         #
+#    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/06 15:13:18 by ubuntu            #+#    #+#              #
-#    Updated: 2024/06/06 15:13:34 by ubuntu           ###   ########.fr        #
+#    Updated: 2024/06/07 11:32:55 by vvaudain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ GREEN 		:=	\033[0;92m
 CYAN 		:=	\033[0;96m
 
 # Sources and Objects
-SRC			:= main.cpp 
+SRC			:= main.cpp \
+				Harl.cpp
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
 
