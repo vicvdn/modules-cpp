@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 10:33:34 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/06/11 14:22:00 by vvaudain         ###   ########.fr       */
+/*   Created: 2024/06/11 14:19:56 by vvaudain          #+#    #+#             */
+/*   Updated: 2024/06/11 14:22:30 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
 
 Fixed::Fixed( void ) : _number(0) {
 	// std::cout << "Default constructor called" << std::endl;
