@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:16:56 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/06/07 18:30:37 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/06/10 14:37:07 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ public:
 	Fixed(const	Fixed&	copy);
 	~Fixed();
 	Fixed&	operator=(Fixed const & rhs);
-	
 	int 	getRawBits( void ) const;
 	void 	setRawBits( int const raw );
 	float 	toFloat( void ) const;

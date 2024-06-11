@@ -248,3 +248,14 @@ const means that the value of the variable cannot be modified after its initiali
 ```int FRACTIONAL_BITS = 8``` initializes the variable with the literal value 8.
 
 You can access this constant using ```SomeClass::FRACTIONAL_BITS``` without needing to instantiate SomeClass.
+
+### ex01:
+- [Mostafa's notes were super helpful in understanding the concept of fixed point numbers and how  to implement them in C++.](https://drvegapunk.notion.site/Module-02-e736a62ce64a4091baec64782eddb528)
+
+### ex02:
+
+- [To understand how operators overloading works in C++ and how to implement it.](https://openclassrooms.com/fr/courses/7137751-programmez-en-oriente-objet-avec-c/7531066-utilisez-les-operateurs-de-comparaison)
+
+- Other ressource on the same matter to uderstand the amount of parameters if it is a member function or not: [here](https://cpp.developpez.com/redaction/data/pages/rubrique/cpp/cours/eckel/?page=surcharge-operateurs)
+
+- Best ressource to understand pre/post incrementation and decrementation: [here](https://www.geeksforgeeks.org/increment-and-decrement-operator-overloading-in-c/)
