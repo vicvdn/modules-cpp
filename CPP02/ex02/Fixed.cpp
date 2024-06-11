@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 10:33:34 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/06/11 12:00:26 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/06/11 14:01:27 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Fixed::Fixed( void ) : _number(0) {
 Fixed::Fixed( const int number ) {
 	// std::cout << "Int constructor called" << std::endl;
 	this->_number = number << this->_frac_bits;
-	std::cout << "nb = " << this->_number << std::endl;
 }
 
 Fixed::Fixed (const float number) {
@@ -92,22 +91,21 @@ bool Fixed::operator<=(const Fixed & rhs) const {
 }
 
 bool Fixed::operator!=(const Fixed & rhs) const {
-	return (this->_number <= rhs.getRawBits());
+	return (this->_number != rhs.getRawBits());
 }
 
 //arithmetics operators
 
 Fixed Fixed::operator+(const Fixed & rhs) {
-	return (this->_number + rhs.getRawBits());
+	return (this->toFloat() + rhs.toFloat());
 }
 
 Fixed Fixed::operator-(const Fixed & rhs) {
-	return (this->_number - rhs.getRawBits());
+	return (this->toFloat() - rhs.toFloat());
 }
 
 Fixed Fixed::operator*(const Fixed & rhs) {
-	std::cout << this->_number << "   " << rhs.getRawBits()<<std::endl;
-	return (this->_number * rhs.getRawBits());
+	return (this->toFloat() * rhs.toFloat());
 }
 
 Fixed Fixed::operator/(const Fixed & rhs) {
