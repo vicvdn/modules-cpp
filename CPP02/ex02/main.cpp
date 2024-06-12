@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 14:14:12 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/06/11 14:02:39 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:38:28 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ int main( void ) {
 	std::cout << b << std::endl;
 	std::cout << Fixed::max( a, b ) << std::endl;
 	
-	std::cout << "------------------------" << std::endl;
+	// std::cout << "------------------------" << std::endl;
 
-	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << "max = " << Fixed::max( a, b ) << std::endl;
-	std::cout << "min = " << Fixed::min( a, b ) << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << --a << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << a-- << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << b << std::endl;
+	// std::cout << "max = " << Fixed::max( a, b ) << std::endl;
+	// std::cout << "min = " << Fixed::min( a, b ) << std::endl;
 
 	// Fixed const a(5.05f);
 	// Fixed const b(2);
