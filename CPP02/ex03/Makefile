@@ -6,7 +6,7 @@
 #    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/11 14:22:58 by vvaudain          #+#    #+#              #
-#    Updated: 2024/06/11 14:23:13 by vvaudain         ###   ########.fr        #
+#    Updated: 2024/06/12 11:10:47 by vvaudain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ CYAN 		:=	\033[0;96m
 # Sources and Objects
 SRC			:= main.cpp \
 				Fixed.cpp \
-				Point.cpp
+				Point.cpp \
+				bsp.cpp
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
 

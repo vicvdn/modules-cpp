@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 14:19:56 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/06/11 14:22:30 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/06/12 11:48:33 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Fixed&	Fixed::operator=( Fixed const &rhs) {
 	if (this != &rhs) {
 		this->_number = rhs.getRawBits();
 	}
-	return *this;
+	return (*this);
 }
 
 int Fixed::getRawBits( void ) const {
@@ -95,19 +95,19 @@ bool Fixed::operator!=(const Fixed & rhs) const {
 
 //arithmetics operators
 
-Fixed Fixed::operator+(const Fixed & rhs) {
+Fixed Fixed::operator+(const Fixed & rhs) const {
 	return (this->toFloat() + rhs.toFloat());
 }
 
-Fixed Fixed::operator-(const Fixed & rhs) {
+Fixed Fixed::operator-(const Fixed & rhs) const {
 	return (this->toFloat() - rhs.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed & rhs) {
+Fixed Fixed::operator*(const Fixed & rhs) const {
 	return (this->toFloat() * rhs.toFloat());
 }
 
-Fixed Fixed::operator/(const Fixed & rhs) {
+Fixed Fixed::operator/(const Fixed & rhs) const {
 	return (this->_number / rhs.getRawBits());
 }
 
