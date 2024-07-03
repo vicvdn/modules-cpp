@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:01:08 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/06/12 15:37:00 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/03 11:53:16 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 #include <string>
 #include <iostream>
 
-# define PURPLE		"\033[32m"
+# define GREEN		"\033[32m"
+# define BOLDPURPLE		"\033[1;35m"
+# define BOLDRED		"\033[1;31m"
+# define BOLDYELLOW		"\033[1;33m"
 # define RESET		"\033[0m"
 
 class ClapTrap {
