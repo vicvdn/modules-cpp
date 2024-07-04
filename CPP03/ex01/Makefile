@@ -6,12 +6,12 @@
 #    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 14:00:04 by vvaudain          #+#    #+#              #
-#    Updated: 2024/06/12 14:00:27 by vvaudain         ###   ########.fr        #
+#    Updated: 2024/07/04 14:25:59 by vvaudain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Setup
-NAME 		:=	a.out
+NAME 		:=	Serena
 CC			:=	c++
 CFLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g3
 
@@ -22,7 +22,8 @@ CYAN 		:=	\033[0;96m
 
 # Sources and Objects
 SRC			:= main.cpp \
-				ClapTrap.cpp
+				ClapTrap.cpp\
+				ScavTrap.cpp
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
 

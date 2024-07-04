@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:01:08 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/03 11:53:16 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:29:19 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ class ClapTrap {
 		void beRepaired(unsigned int amount);
 };
 
-
+//faut assigner l'operateur =
 
 #endif
