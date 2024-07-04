@@ -259,3 +259,11 @@ You can access this constant using ```SomeClass::FRACTIONAL_BITS``` without need
 - Other ressource on the same matter to uderstand the amount of parameters if it is a member function or not: [here](https://cpp.developpez.com/redaction/data/pages/rubrique/cpp/cours/eckel/?page=surcharge-operateurs)
 
 - Best ressource to understand pre/post incrementation and decrementation: [here](https://www.geeksforgeeks.org/increment-and-decrement-operator-overloading-in-c/)
+
+## CPP03
+
+### ex03:
+
+- **Diamond problem**: The diamond problem is an ambiguity that arises when two classes B and C inherit from a class A, and class D inherits from both B and C. If class A has a method that is overridden by B, and C, and D does not override it, then which version of the method does D inherit: that of B, or that of C? The diamond problem is called this way because of the diamond shape that is created when this situation occurs.
+
+- **Virtual inheritance**: Virtual inheritance is a C++ technique that is used to solve the diamond problem. It allows a class to inherit from a base class only once, even if it is inherited by multiple classes in the hierarchy. By using virtual inheritance, you can ensure that there is only one instance of the base class in the inheritance hierarchy, which helps to avoid ambiguity and conflicts. 
