@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:01:08 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/04 14:43:37 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/12 12:17:05 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,5 @@ class ClapTrap {
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };
-
-
 
 #endif

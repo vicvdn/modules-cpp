@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:01:23 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/11 12:50:59 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/12 12:19:13 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
 
 #include "FragTrap.hpp"
 
@@ -39,5 +36,3 @@ void FragTrap::highFivesGuys(void) {
 				<< RESET << PURPLE << "Hey! Can we High Five?" 
 				<< RESET << std::endl;
 }
-
-#endif
