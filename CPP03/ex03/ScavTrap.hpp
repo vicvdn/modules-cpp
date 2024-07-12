@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 13:23:57 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/11 12:46:41 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/12 12:57:01 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 
 class ScavTrap: virtual public ClapTrap {
 
+	protected:
+		int		_energy_points;
 	public:
 	
 		ScavTrap(); //default constructor

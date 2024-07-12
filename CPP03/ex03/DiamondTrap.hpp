@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:53:25 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/11 18:05:42 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/12 12:43:14 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define BLUE			"\033[34m"
 # define PURPLE			"\033[35m"
 # define CYAN			"\033[36m"
+# define BOLDCYAN		"\033[1;36m"
 # define BOLDPURPLE		"\033[1;35m"
 # define BOLDRED		"\033[1;31m"
 # define BOLDYELLOW		"\033[1;33m"
@@ -40,7 +41,7 @@ class DiamondTrap: public ScavTrap, public FragTrap{
 		~DiamondTrap();
 		virtual std::string	getName() const;
 		DiamondTrap& operator=(DiamondTrap const &rhs);
-		void	WhoAmI();
+		void	whoAmI();
 		virtual void	attack(const std::string& target);
 };
 

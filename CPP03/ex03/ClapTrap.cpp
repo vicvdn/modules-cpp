@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:00:54 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/11 12:52:35 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/12 12:53:40 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() {
+ClapTrap::ClapTrap(): _name("default"), _hit_points(10),
+	_energy_points(10), _attack_damage(0) {
 	std::cout << GREEN << "[INFO] ClapTrap default constructor called" << RESET << std::endl;
 }
 

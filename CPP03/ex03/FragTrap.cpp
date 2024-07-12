@@ -6,13 +6,14 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:01:23 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/04 15:44:52 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/12 12:51:27 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(void){
+FragTrap::FragTrap(): ClapTrap("default", 100, 100, 30){
+	std::cout << GREEN << "[INFO] FragTrap default constructor called" << RESET << std::endl;
 }
 
 FragTrap::FragTrap (std::string name) : ClapTrap(name, 100, 100, 30) {

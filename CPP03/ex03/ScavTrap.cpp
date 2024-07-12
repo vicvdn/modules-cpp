@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 12:33:02 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/11 12:51:41 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/12 12:57:18 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap(){
-} //default constructor
+ScavTrap::ScavTrap(): ClapTrap("default", 100, 50, 20){
+	std::cout << GREEN << "[INFO] ScavTrap default constructor called" << RESET << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name): ClapTrap(name, 100, 50, 20) {
 	std::cout << RED << "[INFO] ScavTrap constructor called" << RESET << std::endl;
