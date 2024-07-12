@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:01:08 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/04 14:43:37 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/12 13:37:58 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 class ClapTrap {
 
-	private:
+	protected:
 		std::string	_name;
 		int			_hit_points;
 		int			_energy_points;
@@ -34,7 +34,7 @@ class ClapTrap {
 
 	public:
 		ClapTrap(); //default constructor
-		ClapTrap(std::string name, int hp, int ep, int dmg); //init constructor
+		ClapTrap(std::string name); //init constructor
 		ClapTrap(const ClapTrap& copy);	//copy constructor
 		virtual ~ClapTrap(); //destructor
 		std::string	getName()const;

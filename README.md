@@ -267,3 +267,7 @@ You can access this constant using ```SomeClass::FRACTIONAL_BITS``` without need
 - **Diamond problem**: The diamond problem is an ambiguity that arises when two classes B and C inherit from a class A, and class D inherits from both B and C. If class A has a method that is overridden by B, and C, and D does not override it, then which version of the method does D inherit: that of B, or that of C? The diamond problem is called this way because of the diamond shape that is created when this situation occurs.
 
 - **Virtual inheritance**: Virtual inheritance is a C++ technique that is used to solve the diamond problem. It allows a class to inherit from a base class only once, even if it is inherited by multiple classes in the hierarchy. By using virtual inheritance, you can ensure that there is only one instance of the base class in the inheritance hierarchy, which helps to avoid ambiguity and conflicts. 
+
+- **Protected vs Private**: The protected access specifier allows the members of a class to be accessed by its derived classes. This means that the protected members are visible to the derived classes, but not to the outside world. The private access specifier, on the other hand, restricts access to the members of a class to only that class itself. This means that the private members are not visible to the derived classes or the outside world.
+
+- Useful resource to understand inheritance : [here](https://openclassrooms.com/fr/courses/7137751-programmez-en-oriente-objet-avec-c/7531561-decouvrez-la-notion-dheritage)
