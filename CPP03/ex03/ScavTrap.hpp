@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 13:23:57 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/12 12:57:01 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:41:57 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,16 @@
 class ScavTrap: virtual public ClapTrap {
 
 	protected:
-		int		_energy_points;
+		int		_nrj_points;
 	public:
 	
 		ScavTrap(); //default constructor
 		ScavTrap(std::string name); //init constructor
 		ScavTrap(const ScavTrap& copy);	//copy constructor
 		~ScavTrap(); //destructor
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void guardGate();
+		void setDefaultDmg();
 };
 
 #endif

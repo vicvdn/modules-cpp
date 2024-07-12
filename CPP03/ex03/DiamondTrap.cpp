@@ -6,28 +6,32 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:53:11 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/12 12:43:09 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/12 15:42:57 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(),
-	FragTrap(), _name("default"){
-	this->setHitPoints(FragTrap::getHitPoints());
-	this->setEnergyPoints(ScavTrap::getEnergyPoints());
-	this->setAttackDamage(FragTrap::getAttackDamage());
+DiamondTrap::DiamondTrap() : ClapTrap(), _name("default"){
+	
+	this->_hit_points = FragTrap::_hit_points;
+	this->_energy_points = ScavTrap::_nrj_points;
+	this->_attack_damage = FragTrap::_attack_damage;
+	
 	std::cout	<< CYAN << "[INFO] Default DiamondTrap constructor called" 
 				<< RESET << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name + "_clap_name", 100, 100, 30), 
+DiamondTrap::DiamondTrap(std::string const name) : ClapTrap(name + "_clap_name"),
 	_name(name) {
+	this->_hit_points = FragTrap::_hit_points;
+	this->_energy_points = ScavTrap::_nrj_points;
+	this->_attack_damage = FragTrap::_attack_damage;
 	std::cout	<< CYAN << "[INFO] DiamondTrap constructor called" 
 				<< RESET << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap & copy) : ClapTrap(copy), 
+DiamondTrap::DiamondTrap(DiamondTrap const &copy) : ClapTrap(copy), 
 	ScavTrap(copy), FragTrap(copy), _name(copy.getName() + "_cpy"){
 	*this = copy;
 	std::cout	<< CYAN << "[INFO] DiamondTrap copy constructor called" 
@@ -60,7 +64,7 @@ void	DiamondTrap::attack(const std::string& target){
 }
 
 std::ostream &operator<<(std::ostream &os, DiamondTrap &obj){
-	os	<< "\n" << BOLDPURPLE << "Diamond infos: " << RESET << "\n" 
+	os	<< "\n" << BOLDPURPLE << "Diamond info: " << RESET << "\n" 
 		<< "Name: " << obj.getName() << "\n"
 		<< "Hit Points: " << obj.getHitPoints() << "\n"
 		<< "Energy Points: " << obj.getEnergyPoints() << "\n"

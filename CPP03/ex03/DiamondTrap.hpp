@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 15:53:25 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/12 12:43:14 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/12 14:49:22 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define BOLDYELLOW		"\033[1;33m"
 # define RESET			"\033[0m"
 
-class DiamondTrap: public ScavTrap, public FragTrap{
+class DiamondTrap: virtual public ScavTrap, virtual public FragTrap{
 
 	private:
 		const std::string	_name;

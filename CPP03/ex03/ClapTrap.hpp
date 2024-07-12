@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:01:08 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/11 16:26:25 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/12 13:46:16 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class ClapTrap {
 
 	public:
 		ClapTrap(); //default constructor
-		ClapTrap(std::string name, int hp, int ep, int dmg); //init constructor
+		ClapTrap(std::string name); //init constructor
 		ClapTrap(const ClapTrap& copy);	//copy constructor
 		virtual ~ClapTrap(); //destructor
 		std::string	getName()const;
