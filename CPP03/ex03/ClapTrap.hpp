@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:01:08 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/04 14:43:37 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/11 16:26:25 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 class ClapTrap {
 
-	private:
+	protected:
 		std::string	_name;
 		int			_hit_points;
 		int			_energy_points;

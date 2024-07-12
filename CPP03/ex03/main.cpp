@@ -3,51 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:00:36 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/04 15:36:58 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/11 18:01:39 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int	main(void) {
 
-	ClapTrap	player("FIGHTER", 10, 10, 0);
-	ScavTrap	other("SV FIGHTER");
-	FragTrap	other2("FG FIGHTER");
+	DiamondTrap	playerdiamond("Diamond");
+	DiamondTrap	playerdiamond2;
+	DiamondTrap	playerdiamondcopy(playerdiamond);
 
+	std::cout << playerdiamond << "\n" << playerdiamond2 << "\n" << playerdiamondcopy << std::endl;
 	std::cout << BOLDYELLOW << "ClapTrap attacks ScavTrap" << RESET << std::endl;
 	for (int i = 0; i < 4; i++) {
-		player.attack("VICTIM");
-		other.takeDamage(player.getAttackDamage());
+		playerdiamond.attack("player2");
+		playerdiamond2.takeDamage(playerdiamond.getAttackDamage());
 		if (i % 2 == 0)
-			other.beRepaired(other.getEnergyPoints());
+			playerdiamond2.beRepaired(playerdiamond2.getEnergyPoints());
 	}
-	std::cout << BOLDYELLOW << "ClapTrap attacks FragTrap" << RESET << std::endl;
-	for (int i = 0; i < 4; i++) {
-		player.attack("SV OPPONENT");
-		other2.takeDamage(player.getAttackDamage());
-		if (i % 2 == 0)
-			other2.beRepaired(other2.getEnergyPoints());
-	}
-	std::cout << BOLDYELLOW << "ScavTrap attacks FragTrap" << RESET << std::endl;
-	for (int i = 0; i < 4; i++) {
-		other.attack("SV OPPONENT");
-		other2.takeDamage(other.getAttackDamage());
-		if (i % 2 == 0)
-			other2.beRepaired(other2.getEnergyPoints());
-	}
-	std::cout << BOLDYELLOW << "FragTrap attacks ScavTrap" << RESET << std::endl;
-	for (int i = 0; i < 4; i++) {
-		other2.attack("VICTIM");
-		other.takeDamage(other.getAttackDamage());
-		if (i % 2 == 0)
-			other.beRepaired(other.getEnergyPoints());
-	}
-	other.guardGate();
+	playerdiamond.WhoAmI();
 	return 0;
 }

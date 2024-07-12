@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 13:23:57 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/04 16:18:44 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/11 12:46:41 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@
 # define YELLOW			"\033[33m"
 # define BLUE			"\033[34m"
 # define PURPLE			"\033[35m"
+# define CYAN			"\033[36m"
 # define BOLDPURPLE		"\033[1;35m"
 # define BOLDRED		"\033[1;31m"
 # define BOLDYELLOW		"\033[1;33m"
 # define RESET			"\033[0m"
 
-class ScavTrap: public virtual ClapTrap {
+class ScavTrap: virtual public ClapTrap {
 
 	public:
 	

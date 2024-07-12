@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 12:33:02 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/04 14:18:52 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/11 12:51:12 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
@@ -42,3 +45,5 @@ void ScavTrap::guardGate(){
 				<< RESET << PURPLE << " is now in Gate keeper mode" 
 				<< RESET << std::endl;
 }
+
+#endif

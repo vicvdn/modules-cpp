@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
+#    By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/12 14:00:04 by vvaudain          #+#    #+#              #
-#    Updated: 2024/07/04 15:37:36 by vvaudain         ###   ########.fr        #
+#    Updated: 2024/07/11 16:28:13 by victoirevau      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Setup
 NAME 		:=	Serena
 CC			:=	c++
-CFLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g3
+CFLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g3 -Wshadow
 
 # Colors
 DEF_COLOR	:=	\033[0;39m
@@ -24,7 +24,8 @@ CYAN 		:=	\033[0;96m
 SRC			:= main.cpp \
 				ClapTrap.cpp \
 				ScavTrap.cpp \
-				FragTrap.cpp
+				FragTrap.cpp \
+				DiamondTrap.cpp
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
 

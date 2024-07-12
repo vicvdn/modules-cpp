@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 14:00:54 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/07/04 14:17:40 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/07/11 12:52:35 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
