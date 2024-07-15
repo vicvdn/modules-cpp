@@ -6,14 +6,14 @@
 #    By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/07 14:23:39 by vvaudain          #+#    #+#              #
-#    Updated: 2024/06/07 16:08:13 by vvaudain         ###   ########.fr        #
+#    Updated: 2024/07/15 13:14:07 by vvaudain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Setup
 NAME 		:=	a.out
 CC			:=	c++
-CFLAGS		:=	-Wall -Wextra -Werror -std=c++98 -g3
+CFLAGS		:=	-Wall -Wextra -Werror -std=c++98 #-g3
 
 # Colors
 DEF_COLOR	:=	\033[0;39m
