@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:14:07 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 14:51:57 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/30 16:39:59 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ class Animal{
 		Animal();
 		Animal(std::string type);
 		Animal(const Animal &copy);
-		~Animal();
-		void makeSound(void) const;
-		std::string getType(void) const;
+		virtual ~Animal();
 		Animal &operator=(const Animal &rhs);
+		
+		virtual void makeSound(void) const;
+		std::string getType(void) const;
 };
 
 #endif

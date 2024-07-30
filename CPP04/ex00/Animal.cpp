@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:28:21 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 14:52:35 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/30 16:39:01 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ Animal::Animal() : _type("default") {
 } //default constructor
 
 Animal::Animal(std::string type) : _type(type){
+	std::cout << GREEN << "This is the Animal param constructor" << RESET << std::endl;
+	
 }
 
 Animal::Animal(const Animal &copy){
