@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 16:49:57 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 17:27:25 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/30 18:11:27 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class WrongAnimal{
 		WrongAnimal();
 		WrongAnimal(std::string type);
 		WrongAnimal(const WrongAnimal &copy);
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 		WrongAnimal &operator=(const WrongAnimal &rhs);
 		
 		void makeSound(void) const;

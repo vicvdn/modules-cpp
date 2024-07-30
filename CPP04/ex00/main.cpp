@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:10:53 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 17:27:46 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/30 18:08:52 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,82 +34,47 @@
 // return 0;
 // }
 
-// int main()
-// {
-// 	const Animal* meta = new Animal();
-// 	const Animal* j = new Dog();
-// 	const Animal* i = new Cat();
-	
-// 	std::cout << meta->getType() << " " << std::endl;
-// 	i->makeSound(); //will output the cat sound!
-// 	std::cout << j->getType() << " " << std::endl;
-// 	j->makeSound();
-// 	std::cout << i->getType() << " " << std::endl;
-// 	meta->makeSound();
-	
-// 	delete j;
-// 	delete i;
-// 	delete meta;
-	
-// 	Animal	ani = Animal();
-// 	ani.makeSound();
-// 	ani = Cat();
-// 	std::cout << ani.getType() << ": ";
-// 	ani.makeSound();
-// 	// std::cout << std::endl;
-	
-// 	const WrongAnimal* wanimal = new WrongAnimal();
-// 	const WrongAnimal* wcat = new WrongCat();
-	
-// 	std::cout << wanimal->getType() << " " << std::endl;
-// 	std::cout << wcat->getType() << " " << std::endl;
-// 	wanimal->makeSound();
-// 	wcat->makeSound();
-	
-// 	delete wanimal;
-// 	delete wcat;
-	
-// 	return 0;
-// }
-
-int	main(void)
+int main()
 {
-	const Animal*	ani = new Animal();
-	const Animal*	dog = new Dog();
-	const Animal*	cat = new Cat();
-
-	std::cout << ani->getType() << " " << std::endl;
-	ani->makeSound();
-	std::cout << dog->getType() << " " << std::endl;
-	dog->makeSound();
-	std::cout << cat->getType() << " " << std::endl;
-	cat->makeSound();
-
-	delete ani;
-	delete dog;
-	delete cat;
-
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	
 	std::cout << std::endl;
-
-	Animal	ana = Animal();
-	ana.makeSound();
-	ana = Cat();
-	std::cout << ana.getType() << ": ";
-	ana.makeSound();
-
+	
+	std::cout << meta->getType() << " : ";
+	meta->makeSound(); //will output the cat sound!
+	std::cout << j->getType() << " : ";
+	j->makeSound();
+	std::cout << i->getType() << " : ";
+	i->makeSound();
+	
 	std::cout << std::endl;
+	delete j;
+	delete i;
+	delete meta;
+	std::cout << "----------------------------------" << std::endl;
+	
+	Animal	ani = Animal();
+	ani.makeSound();
+	ani = Cat();
+	std::cout << ani.getType() << " : ";
+	ani.makeSound();
+	
+	std::cout << std::endl;
+	std::cout << "----------------------------------" << std::endl;
 
-	const WrongAnimal*	wani = new WrongAnimal();
-	const WrongAnimal*	wcat = new WrongCat();
-
-	std::cout << wani->getType() << " " << std::endl;
-	wani->makeSound();
-	std::cout << wcat->getType() << " " << std::endl;
+	
+	const WrongAnimal* wanimal = new WrongAnimal();
+	const WrongAnimal* wcat = new WrongCat();
+	
+	std::cout << wanimal->getType() << " : ";
+	wanimal->makeSound();
+	std::cout << wcat->getType() << " : ";
 	wcat->makeSound();
-
-	delete wani;
+	
+	delete wanimal;
 	delete wcat;
-
-	std::cout << std::endl;
+	
 	return 0;
 }

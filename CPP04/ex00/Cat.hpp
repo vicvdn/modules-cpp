@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:58:31 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 14:52:02 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/30 18:07:11 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 #include "Animal.hpp"
 #include <string>
 #include <iostream>
+
+#define CYAN  "\033[36m"
+#define RESET   "\033[0m"
 
 class Cat : virtual public Animal {
 	public:

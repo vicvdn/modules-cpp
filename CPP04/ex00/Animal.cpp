@@ -6,13 +6,13 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:28:21 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 16:39:01 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/30 18:04:27 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() : _type("default") {
+Animal::Animal() : _type("Animal") {
 	std::cout << GREEN << "This is the Animal constructor" << RESET << std::endl;
 } //default constructor
 
@@ -27,7 +27,7 @@ Animal::Animal(const Animal &copy){
 } //copy constructor
 
 Animal::~Animal(){
-	std::cout << GREEN << "This is the Animal destructor" << RESET << std::endl;
+	std::cout << RED << "This is the Animal destructor" << RESET << std::endl;
 } //destructor
 
 std::string Animal::getType(void) const{
@@ -41,6 +41,8 @@ void Animal::makeSound(void) const {
 Animal & Animal::operator=(const Animal &rhs){
 	if (this != &rhs){
 		this->_type = rhs._type;
+		std::cout << GREEN << "This is the Animal assign operator constructor" << RESET << std::endl;
+
 	}
 	return (*this);
 } //= operator overload
