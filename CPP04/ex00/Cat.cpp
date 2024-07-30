@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:06:05 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 14:52:41 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/30 15:53:48 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Cat::Cat(): Animal("Cat"){
 	std::cout << RED << "This is the Cat default constructor" << RESET << std::endl;
 }
 
-Cat::Cat(const Cat& copy){
+Cat::Cat(const Cat& copy) : Animal(copy) {
 	std::cout << RED << "This is the Cat copy constructor" << RESET << std::endl;
 	if (this != &copy){
 		*this = copy;
