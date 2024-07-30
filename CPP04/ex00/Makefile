@@ -6,7 +6,7 @@
 #    By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/29 12:10:32 by victoirevau       #+#    #+#              #
-#    Updated: 2024/07/29 16:54:10 by victoirevau      ###   ########.fr        #
+#    Updated: 2024/07/30 17:20:18 by victoirevau      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ CYAN 		:=	\033[0;96m
 SRC			:= main.cpp \
 				Animal.cpp \
 				Cat.cpp \
-				Dog.cpp
+				Dog.cpp \
+				WrongCat.cpp \
+				WrongAnimal.cpp
 				
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
