@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:06:05 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/31 12:07:57 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/31 17:37:34 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,8 @@ Cat& Cat::operator=(const Cat &rhs){
 		this->_brain = new Brain(*rhs._brain);
 	}
 	return (*this);
+}
+
+Brain *Cat::getBrain(void) const {
+	return (this->_brain);
 }

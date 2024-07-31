@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:27:14 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/31 16:36:27 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/31 17:29:58 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	Dog::makeSound(void) const {
 
 Dog::~Dog(){
 	std::cout << YELLOW << "This is the Dog destructor" << RESET << std::endl;
+	delete this->_brain;
 }
 
 Dog& Dog::operator=(const Dog &rhs){

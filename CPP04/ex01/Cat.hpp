@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:58:31 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/31 12:06:04 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/07/31 17:37:51 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Cat : public Animal {
 		virtual ~Cat();
 		virtual void makeSound(void) const;
 		Cat& operator=(const Cat &rhs);
+		Brain *getBrain(void) const;
 };
 
 #endif
