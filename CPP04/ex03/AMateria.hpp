@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:00:03 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/02 15:56:45 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/02 17:21:43 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 #include <string>
 #include <iostream>
-#include "ICharacter.hpp"
+#include "Character.hpp"
 
 #define GREEN "\033[32m"
 #define RED "\033[31m"
 #define RESET "\033[0m"
 
-class ICharacter; 
-/*Forward declaration because of circular dependency : AMateria.hpp
+class ICharacter; /*Forward declaration because of circular dependency : AMateria.hpp
 includes ICharacter.hpp and ICharacter.hpp includes AMateria.hpp*/
+
 class AMateria {
 	protected:
 		std::string _type;

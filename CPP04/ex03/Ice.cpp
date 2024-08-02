@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 22:01:05 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/02 11:06:04 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/02 17:32:35 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ AMateria*	Ice::clone(void) const{
 	return (new Ice(*this));
 }
 
-void use(ICharacter& character){
-	std::cout << "* shoots an ice bolt at" << character.getName() << " *" << std::endl;
+void Ice::use(ICharacter& character){
+	std::cout << "* shoots an ice bolt at " << character.getName() << " *" << std::endl;
 }

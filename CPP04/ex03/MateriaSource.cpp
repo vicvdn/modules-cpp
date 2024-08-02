@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 14:53:00 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/02 15:28:30 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/02 17:24:07 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& rhs){
 				this->inventory[i] = rhs.inventory[i];
 		}
 	}
+	return (*this);
 }
 
 MateriaSource::~MateriaSource(){
@@ -46,7 +47,7 @@ MateriaSource::~MateriaSource(){
 
 void MateriaSource::learnMateria(AMateria* material){
 	for(int i = 0; i < 4; i++){
-		if (this->inventory[i] = NULL){
+		if (this->inventory[i] == NULL){
 			this->inventory[i] = material;
 			break;
 		}
@@ -61,4 +62,5 @@ AMateria* MateriaSource::createMateria(std::string const & type){
 			}
 		}
 	}
+	return (NULL);
 }

@@ -6,21 +6,21 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 16:41:10 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/02 11:49:38 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/02 17:32:08 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
 Character::Character(): _free_space(4) {
-	std::cout << "This is the character constructor" << std::endl;
+	// std::cout << "This is the character constructor" << std::endl;
 
 	for(int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
 }
 
-Character::Character(std::string name): _free_space(4), _name(name) {
-	std::cout << "This is the character init constructor" << std::endl;
+Character::Character(std::string name): _name(name), _free_space(4) {
+	// std::cout << "This is the character init constructor" << std::endl;
 
 	for(int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
@@ -28,7 +28,7 @@ Character::Character(std::string name): _free_space(4), _name(name) {
 
 Character::Character(const Character& copy){
 	
-	std::cout << "This is the character copy constructor" << std::endl;
+	// std::cout << "This is the character copy constructor" << std::endl;
 
 	if (this != &copy){
 		this->_name = copy.getName();
@@ -42,7 +42,7 @@ Character::Character(const Character& copy){
 }
 
 Character::~Character(){
-	std::cout << "This is the character destructor" << std::endl;
+	// std::cout << "This is the character destructor" << std::endl;
 	for (int i = 0; i < 4; i++){
 		if (this->inventory[i] != NULL)
 			delete this->inventory[i];
@@ -59,6 +59,7 @@ Character& Character::operator=(const Character& rhs){
 				this->inventory[i] = rhs.inventory[i];
 		}
 	}
+	return (*this);
 }
 
 std::string const & Character::getName() const {
@@ -70,7 +71,7 @@ void Character::equip(AMateria* m){
 	if (this->_free_space <= 0)
 		return ;
 	for (int i = 0; i < 4; i++){
-		if (this->inventory[i] = NULL){
+		if (this->inventory[i] == NULL){
 			this->inventory[i] = m;
 			break;
 		}

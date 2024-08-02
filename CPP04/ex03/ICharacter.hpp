@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:56:14 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/02 15:57:51 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/02 17:22:39 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define ICHARACTER_HPP
 
 #include "AMateria.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
 
 class AMateria;
 
