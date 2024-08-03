@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:59:48 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/03 13:03:10 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/03 13:07:30 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,37 +59,42 @@ void	AdditionnalTests(void){
 	ICharacter* character1 = new Character("first");
 	ICharacter* character2 = new Character("second");
 	IMateriaSource* src = new MateriaSource();
+	AMateria* tmp;
+	AMateria* tmp1;
+
+	AMateria* ice = new Ice();
 	
 	std::cout << std::endl;
 	std::cout << GREEN << "ADDITIONNAL TESTS" << RESET << std::endl;
 	std::cout << std::endl;
 
-	
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-
+	tmp = src->createMateria("ice");
+	tmp1 = src->createMateria("cure");
 
 	// Test 1: Use a materia without equipping it
 	std::cout << "Test 1: Use a materia without equipping it" << std::endl;
 	ice->use(*character1);
+	delete ice;
 	std::cout << std::endl;
 
 	// Test 2: Equip a materia and use it
 	std::cout << "Test 2: Equip a materia and use it" << std::endl;
-	character1->equip(ice);
+	character1->equip(tmp);
 	character1->use(0, *character2);
 	std::cout << std::endl;
 
 	// Test 3: Overequip a character
 	std::cout << "Test 3: Overequip a character" << std::endl;
-	character1->equip(ice);
-	character1->equip(cure);
-	character1->equip(ice);
-	character1->equip(cure); // This one should not be equipped because we already equipped char1 with 4 materias
+	character1->equip(tmp);
+	character1->equip(tmp1);
+	character1->equip(tmp);
+	character1->equip(tmp1); // This one should not be equipped because we already equipped char1 with 4 materias
 
 	// Test 4: Unequip a materia and use it
 	std::cout << "Test 4: Unequip a materia and use it" << std::endl;
-	character2->equip(ice);
+	character2->equip(tmp);
 	character2->unequip(0);
 	character2->use(0, *character1);
 
