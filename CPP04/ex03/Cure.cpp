@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 19:42:57 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/01 21:58:03 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/03 12:38:59 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Cure::Cure(): AMateria("cure"){
 }
 
-Cure::Cure(const Cure& copy){
+Cure::Cure(const Cure& copy) : AMateria() {
 	*this = copy;
 }
 
