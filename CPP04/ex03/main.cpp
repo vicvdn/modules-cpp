@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:59:48 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/03 13:16:16 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/03 13:19:59 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	AdditionnalTests(void){
 	character1->equip(tmp);
 	tmp = src->createMateria("ice");
 	character1->equip(tmp); // This one should not be equipped because we already equipped char1 with 4 materias
-
+	delete tmp;
 	// Test 4: Unequip a materia and use it
 	std::cout << "Test 4: Unequip a materia and use it" << std::endl;
 	character2->equip(tmp);

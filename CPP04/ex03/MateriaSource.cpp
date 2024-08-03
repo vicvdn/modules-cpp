@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 14:53:00 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/02 17:24:07 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/03 13:19:09 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ AMateria* MateriaSource::createMateria(std::string const & type){
 	for (int i = 0; i < 4; i++){
 		if(this->inventory[i]){
 			if(this->inventory[i]->getType() == type){
+				std::cout << GREEN << "Materia " << type << " created" << RESET << std::endl;
 				return (this->inventory[i]->clone());
 			}
 		}
