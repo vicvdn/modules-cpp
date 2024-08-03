@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:59:48 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/03 12:59:23 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/03 13:01:23 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,10 @@ void	AdditionnalTests(void){
 	character2->equip(ice);
 	character2->unequip(0);
 	character2->use(0, *character1);
+
+	delete character1;
+	delete character2;
+	delete src;
 }
 
 int	main() {
