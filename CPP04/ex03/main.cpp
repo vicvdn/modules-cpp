@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:59:48 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/03 13:01:23 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/03 13:03:10 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,6 @@ void	AdditionnalTests(void){
 	ICharacter* character1 = new Character("first");
 	ICharacter* character2 = new Character("second");
 	IMateriaSource* src = new MateriaSource();
-	
-	AMateria* ice = new Ice();
-	AMateria* cure = new Cure();
 	
 	std::cout << std::endl;
 	std::cout << GREEN << "ADDITIONNAL TESTS" << RESET << std::endl;
