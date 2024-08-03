@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 16:00:06 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/02 11:21:47 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/03 12:23:57 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+
+#define BLUE "\033[34m"
+#define RESET "\033[0m"
 
 class Character : public ICharacter {
 	

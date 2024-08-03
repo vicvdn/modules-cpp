@@ -6,13 +6,13 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 16:41:10 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/08/02 17:32:08 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/03 12:23:38 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(): _free_space(4) {
+Character::Character(): _name("default"), _free_space(4) {
 	// std::cout << "This is the character constructor" << std::endl;
 
 	for(int i = 0; i < 4; i++)
@@ -68,11 +68,12 @@ std::string const & Character::getName() const {
 
 void Character::equip(AMateria* m){
 	this->_free_space--;
-	if (this->_free_space <= 0)
+	if (this->_free_space < 0)
 		return ;
 	for (int i = 0; i < 4; i++){
 		if (this->inventory[i] == NULL){
 			this->inventory[i] = m;
+			std::cout << BLUE << this->_name << RESET << " is equiped with " << m->getType() << " in " << i << std::endl;
 			break;
 		}
 	}
@@ -88,5 +89,9 @@ void Character::use(int idx, ICharacter& target){
 	if (idx >= 0 && idx < 4){
 		if(this->inventory[idx] != NULL)
 			this->inventory[idx]->use(target);
+		else
+			std::cout << "Doesn't do anything: Materia " << idx << " not available"  << std::endl;
 	}
+	else
+		std::cout << "Doesn't do anything: Materia " << idx << " not available"  << std::endl;
 }
