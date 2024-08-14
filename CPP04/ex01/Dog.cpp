@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:27:14 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/31 17:29:58 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/14 13:46:43 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	Dog::makeSound(void) const {
 }
 
 Dog::~Dog(){
-	std::cout << YELLOW << "This is the Dog destructor" << RESET << std::endl;
 	delete this->_brain;
+	std::cout << YELLOW << "This is the Dog destructor" << RESET << std::endl;
 }
 
 Dog& Dog::operator=(const Dog &rhs){
