@@ -271,3 +271,19 @@ You can access this constant using ```SomeClass::FRACTIONAL_BITS``` without need
 - **Protected vs Private**: The protected access specifier allows the members of a class to be accessed by its derived classes. This means that the protected members are visible to the derived classes, but not to the outside world. The private access specifier, on the other hand, restricts access to the members of a class to only that class itself. This means that the private members are not visible to the derived classes or the outside world.
 
 - Useful resource to understand inheritance : [here](https://openclassrooms.com/fr/courses/7137751-programmez-en-oriente-objet-avec-c/7531561-decouvrez-la-notion-dheritage)
+
+## CPP04
+
+- It is recommended to declare as "virtual" the destructor when working with polymorphisms in C++. This is to ensure that the destructor of the derived class is called when deleting an object through a pointer to the base class.
+
+- **Pure abstract class**: A pure abstract class is a class that contains at least one pure virtual function. A pure virtual function is a function that has no implementation and is declared with the syntax virtual void functionName() = 0;. A pure abstract class cannot be instantiated, but it can be used as a base class for other classes.
+
+- **Concrete class**: A concrete class is a class that can be instantiated and used to create objects. It is a class that has all its member functions implemented and does not contain any pure virtual functions. (contrary to an abstract class)
+
+**Caractéristiques d'une classe concrète donc :**
+
+- **Instanciabilité**: Les classes concrètes peuvent être instanciées, ce qui signifie que vous pouvez créer des objets de ces classes.
+
+- **Implémentation complète**: Toutes les méthodes doivent être définies. Une classe concrète peut hériter de classes abstraites, mais elle doit fournir des implémentations pour toutes les fonctions virtuelles pures héritées afin de pouvoir être instanciée.
+
+- **Aucune méthode virtuelle pure**: Une classe est concrète tant qu'elle ne contient pas de méthode virtuelle pure (méthode définie avec = 0).
