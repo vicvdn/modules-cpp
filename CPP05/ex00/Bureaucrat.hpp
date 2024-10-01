@@ -27,7 +27,7 @@ class Bureaucrat{
 		int grade;
 	public:
 		Bureaucrat();
-		Bureaucrat(std::string name, int gradegiven);
+		Bureaucrat(std::string name, int gradeGiven);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &other);
 		Bureaucrat 			&operator=(const Bureaucrat &other);
@@ -43,6 +43,8 @@ class Bureaucrat{
 			public:
 				const char *what() const throw(); //this is the only method that is mandatory to implement
 		};
+		void incrementGrade();
+		void decrementGrade();
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs);

@@ -20,20 +20,20 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.
 Bureaucrat::Bureaucrat() : name("default"), grade(150){
 }
 
-Bureaucrat::Bureaucrat(std::string name, int gradegiven) : name(name), grade(grade){
-	if (grade < 1)
+Bureaucrat::Bureaucrat(std::string name, int gradeGiven) : name(name){
+	if (gradeGiven < 1)
 		throw Bureaucrat::GradeTooHighException();
-	if (grade > 150)
+	if (gradeGiven > 150)
 		throw Bureaucrat::GradeTooLowException();
-	grade = gradegiven;
-	std::cout << "Bureaucrat " << name << " created" << std::endl;
+	grade = gradeGiven;
+	std::cout << GREEN << "Bureaucrat " << name << " created" << RESET << std::endl;
 }
 
 //ASSIGNATION OPERATOR
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other){
 	if (this != &other)
 		grade = other.grade;
-	std::cout << BLUE << "Constructor Bureaucrat by assign operator" << RESET << "\n";
+	std::cout << GREEN << "Constructor Bureaucrat by assign operator" << RESET << "\n";
 	return *this;
 }
 
@@ -46,14 +46,36 @@ const std::string Bureaucrat::getName() const{
 int Bureaucrat::getGrade() const{
 	return grade;
 }
-// const char *Bureaucrat::GradeTooHighException()::what() const throw(){
-// 	return ("Grade is too high");
-// }
 
-// const char *Bureaucrat::GradeTooLowException()::what() const throw(){
-// 	return ("Grade is too low");
-// }
+
+//INCREMENT AND DECREMENT GRADE
+
+void Bureaucrat::incrementGrade(){
+	if (grade <= 1)
+		throw Bureaucrat::GradeTooHighException();
+	grade--;
+}
+
+void Bureaucrat::decrementGrade(){
+	if (grade >= 150)
+		throw Bureaucrat::GradeTooLowException();
+	grade++;
+}
+
+const char *Bureaucrat::GradeTooHighException::what() const throw(){
+	return ("Grade is too high");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw(){
+	return ("Grade is too low");
+}
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << "Bureaucrat " << name << " destroyed" << std::endl;
+	std::cout << RED << "Bureaucrat " << name << " destroyed" << RESET << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs)
+{
+	out << "Bureaucrat " << rhs.getName() << " has grade " << rhs.getGrade();
+	return out;
 }
