@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:06:05 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/31 17:37:34 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/14 13:47:06 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	Cat::makeSound(void) const {
 }
 
 Cat::~Cat(){
-	std::cout << YELLOW << "This is the Cat destructor" << RESET << std::endl;
 	delete this->_brain;
+	std::cout << YELLOW << "This is the Cat destructor" << RESET << std::endl;
 }
 
 Cat& Cat::operator=(const Cat &rhs){

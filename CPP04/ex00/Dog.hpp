@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:27:43 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 14:52:07 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/14 12:09:21 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 #include <string>
 #include <iostream>
 
-class Dog : virtual public Animal {
+class Dog : public Animal {
 	public:
 		Dog();
 		Dog(const Dog &copy);
-		virtual ~Dog();
-		virtual void makeSound(void) const;
+		~Dog();
+		void makeSound(void) const;
 		Dog& operator=(const Dog &rhs);
 };
 

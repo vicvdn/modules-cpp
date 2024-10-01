@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:06:05 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 18:07:20 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/14 12:07:18 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

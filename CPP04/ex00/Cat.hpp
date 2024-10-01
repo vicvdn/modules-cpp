@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 12:58:31 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/07/30 18:07:11 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/08/14 12:09:25 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 #define CYAN  "\033[36m"
 #define RESET   "\033[0m"
 
-class Cat : virtual public Animal {
+class Cat : public Animal {
 	public:
 		Cat();
 		Cat(const Cat &copy);
-		virtual ~Cat();
-		virtual void makeSound(void) const;
+		~Cat();
+		void makeSound(void) const;
 		Cat& operator=(const Cat &rhs);
 };
 
