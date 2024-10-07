@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:06:48 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/09/25 20:11:02 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/02 11:36:55 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,16 @@ const char *Bureaucrat::GradeTooLowException::what() const throw(){
 
 Bureaucrat::~Bureaucrat(){
 	std::cout << RED << "Bureaucrat " << name << " destroyed" << RESET << std::endl;
+}
+
+void Bureaucrat::signForm(Form &form){
+	try{
+		form.beSigned(*this);
+		std::cout << GREEN << name << " signs " << form.getName() << RESET << std::endl;
+	}
+	catch (std::exception &e){
+		std::cout << RED << name << " cannot sign " << form.getName() << " because " << e.what() << RESET << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs)

@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:07:52 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/01 19:40:10 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/07 09:06:47 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 # define FORM_HPP
 
 #include <iostream>
+#include "Bureaucrat.hpp"
 
 #define GREEN "\033[32m"
 #define RED "\033[31m"
 #define YELLOW "\033[33m"
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
+
+class Bureaucrat;
 
 class Form {
 
@@ -45,6 +48,7 @@ class Form {
 			public:
 				const char *what() const throw(); //this is the only method that is mandatory to implement
 		};
+		void beSigned(Bureaucrat &bureaucrat);
 		std::string getName() const;
 		bool getIsSigned() const;
 		int getGradeToSign() const;

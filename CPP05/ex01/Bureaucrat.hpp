@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:28:16 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/01 19:40:04 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/07 09:12:41 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 #define GREEN "\033[32m"
 #define RED "\033[31m"
 #define YELLOW "\033[33m"
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
+
+class Form;
 
 class Bureaucrat{
 	
@@ -45,6 +48,7 @@ class Bureaucrat{
 		};
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &rhs);

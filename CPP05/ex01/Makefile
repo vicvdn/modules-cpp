@@ -11,6 +11,7 @@ CYAN 		:=	\033[0;96m
 # Sources and Objects
 SRC			:= main.cpp \
 				Bureaucrat.cpp \
+				Form.cpp
 				
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 18:28:04 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/09/25 18:28:13 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/07 09:16:06 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,51 +21,26 @@ void printHeader(std::string str)
 
 int	main(void)
 {
-	printHeader("Creating 3 bureaucrats");
+	printHeader("Creating forms ");	
 	try
 	{
-		Bureaucrat	b1("chief", 0);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << YELLOW << e.what() << RESET << std::endl;
-	}
-
-	try
-	{
+		Bureaucrat	b1("chief", 1);
 		Bureaucrat	b2("semi chief", 45);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << YELLOW << e.what() << RESET << std::endl;
-	}
+		Bureaucrat	b3("not chief", 150);
 
-	try
-	{
-		Bureaucrat	b3("not chief", 151);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << YELLOW << e.what() << RESET << std::endl;
+		// Form	f1("form1", 1, 0); //will throw grade is too high exception
+		// Form	f2("form2", 0, 1); //will throw grade is too high exception
+		// Form	f3("form3", 151, 151); //will throw grade is too low exception
+		Form	f4("form4", 1, 1);
+		Form	f5("form5", 45, 45);
 
-	}	
-
-	printHeader("Changing grades");	
-	try
-	{
-		Bureaucrat	b1("First", 5);
-		Bureaucrat	b2("Second", 1);
-
-		std::cout << "b1's name: " << b1.getName() << std::endl;
-		std::cout << "b1's grade: " << b1.getGrade() << std::endl;
-		std::cout << GREEN << b1 << RESET <<std::endl;
-		std::cout << "b2's name: " << b2.getName() << std::endl;
-		std::cout << "b2's grade: " << b2.getGrade() << std::endl;
-		std::cout << GREEN << b2 << RESET <<std::endl;
-		b1.decrementGrade();
-		std::cout << "b1's grade after decrement: " << b1.getGrade() << std::endl;
-		b2.incrementGrade();
-		std::cout << "b2's grade after increment: " << b2.getGrade() << std::endl;
+		printHeader("Attempting to sign forms");
+		b1.signForm(f4);
+		b1.signForm(f5);
+		b2.signForm(f5);
+		printHeader("Attempting to sign forms with bureaucrats of too low grade");
+		b2.signForm(f4); //will throw exception
+		b3.signForm(f5); //will throw exception
 	}
 	catch(const std::exception& e)
 	{

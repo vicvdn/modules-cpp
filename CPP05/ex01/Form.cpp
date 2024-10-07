@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 19:08:33 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/01 19:38:40 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/07 09:11:00 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,16 @@ const char *Form::GradeTooLowException::what() const throw(){
 	return "Grade is too low";
 }
 
-std::string Form::getName() const{
+
+void Form::beSigned(Bureaucrat &bureaucrat)
+{
+	if (bureaucrat.getGrade() > gradeToSign)
+		throw Form::GradeTooLowException();
+	isSigned = true;
+}
+
+std::string Form::getName() const
+{
 	return name;
 }
 
