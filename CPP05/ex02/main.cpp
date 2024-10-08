@@ -92,3 +92,21 @@ int main(void){
 
 	return 0;
 }
+
+
+//randomized robotomy illustrated
+
+// int main(void)
+// {
+// 	Bureaucrat b1("Chief", 1);
+// 	RobotomyRequestForm r1("MACHINE");
+
+// 	b1.signForm(r1);
+// 	std::cout << std::endl;
+// 	for (int i = 0; i < 15; i++)
+// 	{
+// 		b1.executeForm(r1);
+// 		std::cout << std::endl;
+// 	}
+// 	return 0;
+// }
