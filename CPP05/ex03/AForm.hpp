@@ -35,7 +35,7 @@ class AForm {
 		AForm();
 		AForm(const AForm &other);
 		AForm(std::string name, int gradeToSign, int gradeToExecute);
-		~AForm();
+		virtual ~AForm();
 		AForm &operator=(const AForm &other);
 
 		virtual void execute(Bureaucrat const & executor) const = 0;

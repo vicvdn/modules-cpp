@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -23,90 +24,40 @@ void printHeader(std::string str)
 }
 
 
-int main(void){
-	
-	Bureaucrat b1("Chief", 1);
-	Bureaucrat b2("Not chief", 150);
-	Bureaucrat b3("Semi chief", 45);
-	ShrubberyCreationForm s1("randomz");
-	PresidentialPardonForm p1("Prisoner");
-	RobotomyRequestForm r1("TurbulentMachine");
+int main(void)
+{
+	try
+	{
+		Bureaucrat b1("Victoire", 1);
+		Intern intern;
+		AForm *form1;
+		AForm *form2;
+		AForm *form3;
 
-	printHeader("Bureaucrats presented");
-	std::cout << b1 << std::endl;
-	std::cout << b2 << std::endl;
-	
-	printHeader("Forms presented");
-	std::cout << s1 << std::endl;
-	std::cout << std::endl;
-	std::cout << r1 << std::endl;
-	std::cout << std::endl;
-	std::cout << p1 << std::endl;
+		form1 = intern.makeForm("RobotomyRequestForm", "Victoire");
+		printHeader("Bureaucrat signs form1");
+		b1.signForm(*form1);
+		printHeader("Bureaucrat executes form1");
+		b1.executeForm(*form1);
 
-	printHeader("Chief signs forms");
-	b1.signForm(s1);
-	std::cout << std::endl;
-	b1.signForm(r1);
-	std::cout << std::endl;
-	b1.signForm(p1);
+		form2 = intern.makeForm("ShrubberyCreationForm", "Victoire");
+		printHeader("Bureaucrat signs form2");
+		b1.signForm(*form2);
+		printHeader("Bureaucrat executes form2");
+		b1.executeForm(*form2);
+		
+		form3 = intern.makeForm("PresidentialPardonForm", "Victoire");
+		printHeader("Bureaucrat signs form3");
+		b1.signForm(*form3);
+		printHeader("Bureaucrat executes form3");
+		b1.executeForm(*form3);
 
-	printHeader("Chief executes forms");
-	b1.executeForm(s1);
-	std::cout << std::endl;
-	b1.executeForm(r1);
-	std::cout << std::endl;
-	b1.executeForm(p1);
-	std::cout << std::endl;
-
-	/*Is going to trigger errors everywhere*/
-	printHeader("Not chief signs forms");
-	b2.signForm(s1);
-	std::cout << std::endl;
-	b2.signForm(p1);
-	std::cout << std::endl;
-	b2.signForm(r1);
-	
-	printHeader("Not chief executes forms");
-	b2.executeForm(s1);
-	std::cout << std::endl;
-	b2.executeForm(r1);
-	std::cout << std::endl;
-	b2.executeForm(p1);
-	std::cout << std::endl;
-
-	/*Can sign and execute 2/3 forms */
-	printHeader("Semi chief signs forms");
-	b3.signForm(s1);
-	std::cout << std::endl;
-	b3.signForm(r1);
-	std::cout << std::endl;
-	b3.signForm(p1);
-	
-	printHeader("Semi chief executes forms");
-	b3.executeForm(s1);
-	std::cout << std::endl;
-	b3.executeForm(r1);
-	std::cout << std::endl;
-	b3.executeForm(p1);
-	std::cout << std::endl;
-
-	return 0;
+		delete form1;
+		delete form2;
+		delete form3;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << RED << e.what() << RESET << std::endl;
+	}
 }
-
-
-//randomized robotomy illustrated
-
-// int main(void)
-// {
-// 	Bureaucrat b1("Chief", 1);
-// 	RobotomyRequestForm r1("MACHINE");
-
-// 	b1.signForm(r1);
-// 	std::cout << std::endl;
-// 	for (int i = 0; i < 15; i++)
-// 	{
-// 		b1.executeForm(r1);
-// 		std::cout << std::endl;
-// 	}
-// 	return 0;
-// }
