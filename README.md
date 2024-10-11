@@ -287,3 +287,49 @@ You can access this constant using ```SomeClass::FRACTIONAL_BITS``` without need
 - **Implémentation complète**: Toutes les méthodes doivent être définies. Une classe concrète peut hériter de classes abstraites, mais elle doit fournir des implémentations pour toutes les fonctions virtuelles pures héritées afin de pouvoir être instanciée.
 
 - **Aucune méthode virtuelle pure**: Une classe est concrète tant qu'elle ne contient pas de méthode virtuelle pure (méthode définie avec = 0).
+
+## CPP05
+
+**Reminder on abstract base classes and destructors :**
+
+- **Polymorphic Deletion**: If you delete an object of a derived class through a pointer of the base class type, and the base class does not have a virtual destructor, the destructor of the derived class will not be called. This can lead to resource leaks or undefined behavior, as the derived class's resources won't be properly cleaned up.
+
+- **Ensures Proper Cleanup**: Declaring a virtual destructor ensures that when an object is deleted via a base class pointer, the correct destructor (the one from the derived class) is called, allowing for proper resource management and cleanup.
+
+- **Best Practice**: It's a best practice to declare a virtual destructor in any class that is intended to be used polymorphically (i.e., with virtual functions), even if you don't anticipate using it in a polymorphic way right away.
+
+
+**Exceptions:**
+
+Exceptions are used to pinpoint errors and handle them gracefully in C++. They allow you to separate error handling code from the normal flow of the program, making it easier to write robust and reliable software.
+
+- **Throw**: The throw keyword is used to raise an exception. You can throw any type of object as an exception, but it's common to use standard library exceptions like std::runtime_error or std::logic_error.
+
+- **Try-Catch**: The try-catch block is used to catch exceptions that are thrown in the try block. If an exception is thrown, the catch block is executed, allowing you to handle the error and recover from it.
+
+example :
+    
+```cpp
+    try {
+        // Code that may throw an exception
+        throw std::runtime_error("An error occurred");
+    } 
+    catch (const std::exception& e){
+        // Handle the exception
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+```
+
+In this module, we had to create our own exceptions, which meant that we had to create a class that inherits from std::exception and override the what() method to return a description of the exception. It looked like this:
+
+```cpp
+    class MyException : public std::exception {
+            public:
+                virtual const char* what() const throw() 
+                {
+                    return "My custom exception occurred";
+                }
+    };
+```
+
+

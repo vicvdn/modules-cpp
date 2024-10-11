@@ -24,6 +24,8 @@ void printHeader(std::string str)
 }
 
 
+//FIX the fact that when I create a form, three forms are created
+
 int main(void)
 {
 	try
@@ -34,19 +36,19 @@ int main(void)
 		AForm *form2;
 		AForm *form3;
 
-		form1 = intern.makeForm("RobotomyRequestForm", "Victoire");
+		form1 = intern.makeForm("RobotomyRequestForm", "Machine");
 		printHeader("Bureaucrat signs form1");
 		b1.signForm(*form1);
 		printHeader("Bureaucrat executes form1");
 		b1.executeForm(*form1);
 
-		form2 = intern.makeForm("ShrubberyCreationForm", "Victoire");
+		form2 = intern.makeForm("ShrubberyCreationForm", "Tree");
 		printHeader("Bureaucrat signs form2");
 		b1.signForm(*form2);
 		printHeader("Bureaucrat executes form2");
 		b1.executeForm(*form2);
 		
-		form3 = intern.makeForm("PresidentialPardonForm", "Victoire");
+		form3 = intern.makeForm("PresidentialPardonForm", "Prisoner");
 		printHeader("Bureaucrat signs form3");
 		b1.signForm(*form3);
 		printHeader("Bureaucrat executes form3");
