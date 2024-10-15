@@ -14,7 +14,8 @@ SRC			:= main.cpp \
 				AForm.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp \
+				Intern.cpp
 				
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
