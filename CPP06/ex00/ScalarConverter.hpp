@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:11:15 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/14 17:30:29 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/15 17:42:12 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,22 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-// #include <cctype>
-#include <climits>
-#include <cfloat>
+#include <limits>
+// #include <cfloat>
+
+#define BOLDBLUE "\033[1m\033[34m"
+#define RESET "\033[0m"
 
 enum etype {
 	CHAR,
 	INT,
 	FLOAT,
 	DOUBLE,
+	SPECIAL,
 	UNKNOWN
 };
 
+#define NON_DISPLAYABLE "Non displayable"
 class ScalarConverter {
 
 	private:
@@ -40,6 +44,27 @@ class ScalarConverter {
 		static void	convert(std::string const & str);	
 };
 
+//======================= Type check =================================
 etype getType(std::string const &str);
+bool isSpecial(std::string const &str);
+
+
+//======================= Print functions ============================
+bool isOverflowPrint(std::string const &str);
+void printChar(char toPrint, std::string const & str);
+// void printInt(int toPrint);
+void printFloat(float toPrint, etype type);
+void printDouble(double toPrint, etype type);
+
+//======================= Overflow check =======================
+bool isIntOverflow(std::string const &str);
+bool isFloatOverflow(std::string const &str);
+bool isDoubleOverflow(std::string const &str);
+
+//======================= Conversion functions =======================
+char strToChar(std::string const &str, etype type);
+int strToInt(std::string const &str, etype type);
+float strToFloat(std::string const &str, etype type);
+double strToDouble(std::string const &str, etype type);
 
 #endif

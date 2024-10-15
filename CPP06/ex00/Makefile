@@ -11,7 +11,9 @@ CYAN 		:=	\033[0;96m
 # Sources and Objects
 SRC			:= main.cpp \
 				ScalarConverter.cpp \
-				type.cpp
+				type.cpp \
+				print.cpp \
+				convert.cpp
 				
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))

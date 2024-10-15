@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:13:26 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/15 08:51:47 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/15 17:44:58 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,233 +25,131 @@ ScalarConverter::~ScalarConverter() {
 }
 
 ScalarConverter & ScalarConverter::operator=(ScalarConverter const & rhs) {
+	(void)rhs;
 	return *this;
 }
 
-//======================= Overflow check =======================
-
-bool isIntOverflow(std::string const &str, etype type)
+void handleChar(std::string const & str, etype type) 
 {
-	long l;
-	std::stringstream ss(str);
-	ss >> l;
-	if (l > INT_MAX || l < INT_MIN)
-		return true;
-	return false;
-}
-
-bool isFloatOverflow(std::string const &str, etype type)
-{
-	double d;
-	std::stringstream ss(str);
-	ss >> d;
-	if (d > FLT_MAX || d < -FLT_MAX)
-		return true;
-	return false;
-}
-
-bool isDoubleOverflow(std::string const &str, etype type)
-{
-	long double ld;
-	std::stringstream ss(str);
-	ss >> ld;
-	if (ld > DBL_MAX || ld < -DBL_MAX)
-		return true;
-	return false;
-}
-
-//======================= Printing functions =======================
-
-void printChar(char toPrint, std::string const & str, etype type) {
 	std::cout << "char: ";
-	if (toPrint == 0 && str.size() > 1)
-		std::cout << "Impossible" << std::endl;
-	else if (isprint(toPrint))
-		std::cout << "'" << str[0] << "'" << std::endl;
-	else
-		std::cout << "Non displayable" << std::endl;
+	char charToPrint = strToChar(str, type);
+	if (charToPrint == 0)
+	{
+		if (isOverflowPrint(str))
+		{
+			std::cout << "impossible" << std::endl;
+			return;
+		}
+		else
+		{
+			int i;
+			std::stringstream ss(str);
+			ss >> i;
+			if (i >= 32 && i <= 126)
+			{
+				std::cout << static_cast<char>(i) << "'" << std::endl;
+				return;
+			}
+			else if ((i >= 0 && i <= 32) || i == 127)
+			{
+				std::cout << "Non displayable" << std::endl;
+				return;
+			}
+			else
+			{
+				std::cout << "impossible" << std::endl;
+				return;
+			}
+		}
+	}
+	printChar(charToPrint, str);
 }
 
-void printInt(int toPrint, etype type)
+void handleInt(std::string const & str, etype type) 
 {
 	std::cout << "int: ";
-	//gerer l'overflow au moment de la conversion
-	if (toPrint == -1)
-		std::cout << "impossible" << std::endl;
-	else if (toPrint == -2)
+	if (isOverflowPrint(str))
+	{
 		std::cout << "overflow" << std::endl;
+		return;
+	}
+	if (isSpecial(str))
+		std::cout << "impossible" << std::endl;
 	else
-		std::cout << toPrint << std::endl;
+	{
+		int intToPrint = strToInt(str, type);
+		std::cout << intToPrint << std::endl;
+	}
 }
 
-void printFloat(float toPrint, etype type)
+void handleFloat(std::string const & str, etype type) 
 {
 	std::cout << "float: ";
-	//gerer l'overflow au moment de la conversion
-	if (toPrint == -1)
-		std::cout << "impossible" << std::endl;
-	else if (toPrint == -2)
-		std::cout << "overflow" << std::endl;
+	if (isFloatOverflow(str) == true)
+	{
+		if (str.find("-") != std::string::npos)
+			std::cout << "-inff" << std::endl;
+		else
+			std::cout << "inff" << std::endl;
+		return;
+	}
+	if (isSpecial(str))
+	{
+		if (type == FLOAT)
+			std::cout << str << std::endl;
+		else if (type == DOUBLE)
+			std::cout << str << "f" << std::endl;
+	}
 	else
-		std::cout << toPrint << std::endl;
+	{
+		float floatToPrint = strToFloat(str, type);
+		printFloat(floatToPrint, type);
+	}
 }
 
-void printDouble(double toPrint, etype type)
+void handleDouble(std::string const & str, etype type) 
 {
 	std::cout << "double: ";
-	//gerer l'overflow au moment de la conversion
-	if (toPrint == -1)
-		std::cout << "impossible" << std::endl;
-	else if (toPrint == -2)
-		std::cout << "overflow" << std::endl;
+	if (isDoubleOverflow(str) == true)
+	{
+		if (str.find("-") != std::string::npos)
+			std::cout << "-inf" << std::endl;
+		else
+			std::cout << "inf" << std::endl;
+		return;
+	}
+	if (isSpecial(str))
+	{
+		if (type == FLOAT)
+			std::cout << str.substr(0, str.length() - 1) << std::endl;
+		else if (type == DOUBLE)
+			std::cout << str << std::endl;
+	}
 	else
-		std::cout << toPrint << std::endl;
-}
-
-
-//======================= Conversion functions =======================
-
-char strToChar(std::string const &str, etype type)
-{
-	// if (str.size() > 1)
-	// 	return 0;
-	if (type == CHAR)
-		return str[0];
-	else if (type == INT)
 	{
-		int i;
-		std::stringstream ss(str);
-		ss >> i;
-		if (isprint(i))
-			return static_cast<char>(i);
+		double doubleToPrint = strToDouble(str, type);
+		printDouble(doubleToPrint, type);
 	}
-	else if (type == FLOAT)
-	{
-		float f;
-		std::stringstream ss(str);
-		ss >> f;
-		if (isprint(f))
-			return static_cast<char>(f);
-	}
-	else if (type == DOUBLE)
-	{
-		double d;
-		std::stringstream ss(str);
-		ss >> d;
-		if (isprint(d))
-			return static_cast<char>(d);
-	}
-	return 0;
-}
-
-int strToInt(std::string const &str, etype type)
-{
-	if (type == INT)
-	{
-		if (isIntOverflow(str, type) == true)
-			return -2;
-		int i;
-		std::stringstream ss(str);
-		ss >> i;
-		return i;
-	}
-	else if (type == CHAR)
-		return static_cast<int>(str[0]);
-	else if (type == FLOAT)
-	{
-		float f;
-		std::stringstream ss(str);
-		ss >> f;
-		return static_cast<int>(f);
-	}
-	else if (type == DOUBLE)
-	{
-		double d;
-		std::stringstream ss(str);
-		ss >> d;
-		return static_cast<int>(d);
-	}
-	return -1;
-}
-
-float strToFloat(std::string const &str, etype type)
-{
-	if (type == CHAR)
-		return static_cast<float>(str[0]);
-	else if (type == INT)
-	{
-		int i;
-		std::stringstream ss(str);
-		ss >> i;
-		return static_cast<float>(i);
-	}
-	else if (type == FLOAT)
-	{
-		float f;
-		std::stringstream ss(str);
-		ss >> f;
-		return f;
-	}
-	else if (type == DOUBLE)
-	{
-		double d;
-		std::stringstream ss(str);
-		ss >> d;
-		return static_cast<float>(d);
-	}
-	return 0;
-}
-
-double strToDouble(std::string const &str, etype type)
-{
-	if (type == CHAR)
-		return static_cast<double>(str[0]);
-	else if (type == INT)
-	{
-		int i;
-		std::stringstream ss(str);
-		ss >> i;
-		return static_cast<double>(i);
-	}
-	else if (type == FLOAT)
-	{
-		float f;
-		std::stringstream ss(str);
-		ss >> f;
-		return static_cast<double>(f);
-	}
-	else if (type == DOUBLE)
-	{
-		double d;
-		std::stringstream ss(str);
-		ss >> d;
-		return d;
-	}
-	return 0;
 }
 
 //======================= Converter =======================
 
 void ScalarConverter::convert(std::string const & str) {
+	
+	if (str.empty())
+	{
+		std::cerr << "Empty string" << std::endl;
+		return;
+	}
 	etype type = getType(str);
 	if (type == UNKNOWN)
-		std::cerr << str << " is not a scalar type" << std::endl;
-	else
 	{
-		charToPrint = strToChar(str, type); //OK
-		intToPrint = strToInt(str, type);
-		floatToPrint = strToFloat(str, type);
-		doubleToPrint = strToDouble(str, type);
+		std::cerr << str << " is not a scalar type" << std::endl;
+		return;	
 	}
-	printChar(str, type);
-	printInt(str, type);
-	printFloat(str, type);
-	printDouble(str, type);
+	
+	handleChar(str, type);
+	handleInt(str, type);
+	handleFloat(str, type);
+	handleDouble(str, type);
 }
-
-
-//d'abord gettype pour savoir quel type c'est
-//puis convertir en char, int, float, double la string
-//puis print les 4
-//si c'est pas un type connu, print impossible
-//gerer ensuite les overflow
