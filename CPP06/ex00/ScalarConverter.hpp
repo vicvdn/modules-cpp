@@ -14,8 +14,10 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
+#include <sstream>
 #include <string>
-#include <cctype>
+// #include <cctype>
+#include <climits>
 #include <cfloat>
 
 enum etype {
