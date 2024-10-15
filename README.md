@@ -287,3 +287,25 @@ You can access this constant using ```SomeClass::FRACTIONAL_BITS``` without need
 - **Implémentation complète**: Toutes les méthodes doivent être définies. Une classe concrète peut hériter de classes abstraites, mais elle doit fournir des implémentations pour toutes les fonctions virtuelles pures héritées afin de pouvoir être instanciée.
 
 - **Aucune méthode virtuelle pure**: Une classe est concrète tant qu'elle ne contient pas de méthode virtuelle pure (méthode définie avec = 0).
+
+## CPP05
+
+### ex00:
+- **A static method** is a method that belongs to the class itself and not to instances of the class. It can be called without creating an object of the class. Static methods are used to perform operations that do not depend on the state of the object. This is what we are asked to use here because we don't need nor want to create an object of the class to call the method.
+
+example of use:
+
+```cpp
+class MyClass {
+public:
+    static void staticMethod() {
+        std::cout << "Static method called" << std::endl;
+    }
+};
+
+int main() {
+    MyClass::staticMethod();
+
+    return 0;
+}
+```
