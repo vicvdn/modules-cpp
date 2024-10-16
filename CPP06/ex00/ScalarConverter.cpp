@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:13:26 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/15 17:44:58 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:05:27 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,7 @@ void handleFloat(std::string const & str, etype type)
 	}
 	else
 	{
+		// std::cout << "je passe par la" << std::endl;
 		float floatToPrint = strToFloat(str, type);
 		printFloat(floatToPrint, type);
 	}

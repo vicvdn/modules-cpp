@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:18:14 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/15 17:35:41 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/16 14:09:26 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,51 @@
 
 //======================= Overflow check =======================
 
+std::string intToStr(const int input)
+{
+  std::ostringstream oss;
+  oss << input;
+  std::string result = oss.str();
+  return result;
+}
+
+std::string floatToStr(const float input)
+{
+  std::ostringstream oss;
+  oss << input;
+  std::string result = oss.str();
+  return result;
+}
+
+std::string doubleToStr(const double input)
+{
+  std::ostringstream oss;
+  oss << input;
+  std::string result = oss.str();
+  return result;
+}
+
+std::string longDoubleToStr(const long double input)
+{
+  std::ostringstream oss;
+  oss << input;
+  std::string result = oss.str();
+  return result;
+}
+
 bool isIntOverflow(std::string const &str)
 {
 	long l;
 	std::stringstream ss(str);
 	ss >> l;
-	if (l == 0)
-		return false;
-	if (l > std::numeric_limits<int>::max() || l < std::numeric_limits<int>::min())
-		return true;
-	return false;
+
+	if (ss.fail() || !ss.eof())
+	{
+		std::cout << "Error: Invalid input" << std::endl;
+        return true;
+	}
+    return (l > std::numeric_limits<int>::max()
+			|| l < std::numeric_limits<int>::min());
 }
 
 bool isFloatOverflow(std::string const &str)
@@ -32,23 +67,41 @@ bool isFloatOverflow(std::string const &str)
     double d;
     std::stringstream ss(str);
     ss >> d;
-	if (d == 0)
-		return false;
-    if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::min())
-        return true;
-    return false;
+	
+    return (d == std::numeric_limits<float>::infinity() 
+			|| d == -std::numeric_limits<float>::infinity() 
+			|| d > std::numeric_limits<float>::max()
+			|| d < -std::numeric_limits<float>::max());
 }
+
 
 bool isDoubleOverflow(std::string const &str)
 {
 	long double ld;
-	std::stringstream ss(str);
-	ss >> ld;
-	if (ld == 0)
-		return false;
-	if (ld > std::numeric_limits<double>::max() || ld < std::numeric_limits<double>::min())
-		return true;
-	return false;
+    std::stringstream ss(str);
+    ss >> ld;
+
+    // Check for parsing errors
+    // if (ss.fail() || !ss.eof()) {
+    //     std::cout << "Error: Invalid input" << std::endl;
+	// 	return true; // Input was not a valid number
+    // }
+
+    // Check for overflow/underflow
+    return (ld == std::numeric_limits<double>::infinity() || ld == -std::numeric_limits<double>::infinity() ||
+            ld > std::numeric_limits<double>::max() || ld < -std::numeric_limits<double>::max());
+	// long double ld;
+	// std::stringstream ss(str);
+	// ss >> ld;
+	
+	// if (ld == 0)
+	// 	return false;
+	// if (ld > std::numeric_limits<double>::max() || ld < std::numeric_limits<double>::min())
+	// {
+	// 	std::cout << "OVERRRRFLOOOw" << std::endl;
+	// 	return true;
+	// }
+	// return false;
 }
 
 //======================= Conversion functions =======================
@@ -151,6 +204,8 @@ float strToFloat(std::string const &str, etype type)
 		return f;
 	}
 	double d = toDouble(str);
+	if (d > std::numeric_limits<float>::max() || d < std::numeric_limits<float>::min())	
+		return (- std::numeric_limits<float>::infinity());
     return static_cast<float>(d);
 }
 

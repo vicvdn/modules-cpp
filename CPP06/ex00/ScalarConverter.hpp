@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:11:15 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/15 17:42:12 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/16 13:22:24 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ bool isFloatOverflow(std::string const &str);
 bool isDoubleOverflow(std::string const &str);
 
 //======================= Conversion functions =======================
+std::string intToStr(const int input);
+std::string floatToStr(const float input);
+std::string doubleToStr(const double input);
+std::string longDoubleToStr(const long double input);
+
 char strToChar(std::string const &str, etype type);
 int strToInt(std::string const &str, etype type);
 float strToFloat(std::string const &str, etype type);
