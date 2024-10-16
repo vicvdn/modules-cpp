@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:11:15 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/16 13:22:24 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:50:22 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,21 @@ bool isSpecial(std::string const &str);
 
 
 //======================= Print functions ============================
-bool isOverflowPrint(std::string const &str);
+bool isOverflowPrint(std::string const &str, etype type);
 void printChar(char toPrint, std::string const & str);
 // void printInt(int toPrint);
 void printFloat(float toPrint, etype type);
 void printDouble(double toPrint, etype type);
 
 //======================= Overflow check =======================
-bool isIntOverflow(std::string const &str);
+bool isIntOverflow(std::string const &str, etype type);
 bool isFloatOverflow(std::string const &str);
 bool isDoubleOverflow(std::string const &str);
 
 //======================= Conversion functions =======================
+int toInt(std::string const &str);
+float toFloat(std::string const &str);
+double toDouble(std::string const &str);
 std::string intToStr(const int input);
 std::string floatToStr(const float input);
 std::string doubleToStr(const double input);

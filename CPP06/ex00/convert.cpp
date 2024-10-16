@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:18:14 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/16 14:09:26 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/16 16:21:36 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,35 @@ std::string longDoubleToStr(const long double input)
   return result;
 }
 
-bool isIntOverflow(std::string const &str)
+bool isIntOverflow(std::string const &str, etype type)
 {
-	long l;
-	std::stringstream ss(str);
-	ss >> l;
-
-	if (ss.fail() || !ss.eof())
+	if (str.find("f") != std::string::npos)
 	{
-		std::cout << "Error: Invalid input" << std::endl;
-        return true;
+		std::string str2 = str.substr(0, str.length() - 1);
+		return isIntOverflow(str2, type);
 	}
-    return (l > std::numeric_limits<int>::max()
-			|| l < std::numeric_limits<int>::min());
+	double d;
+	std::stringstream ss(str);
+	ss >> d;
+	if (isFloatOverflow(str) == true)
+		return true;
+	if (type == FLOAT || type == DOUBLE)
+	{
+		return (d > std::numeric_limits<int>::max()
+            || d < std::numeric_limits<int>::min()
+            || d != static_cast<int>(d));
+	}
+	else
+	{
+		if (ss.fail() || !ss.eof())
+		{
+			std::cout << "Error: Invalid input" << std::endl;
+			return true;
+		}	
+	}
+    return (d > std::numeric_limits<int>::max()
+            || d < std::numeric_limits<int>::min()
+            || d != static_cast<int>(d));
 }
 
 bool isFloatOverflow(std::string const &str)
@@ -75,33 +91,26 @@ bool isFloatOverflow(std::string const &str)
 }
 
 
+// bool isDoubleOverflow(std::string const &str)
+// {
+// 	long double ld;
+//     std::stringstream ss(str);
+//     ss >> ld;
+
+//     return (ld == std::numeric_limits<double>::infinity() || ld == -std::numeric_limits<double>::infinity() ||
+//             ld > std::numeric_limits<double>::max() || ld < -std::numeric_limits<double>::max());
+	
+// }
+
 bool isDoubleOverflow(std::string const &str)
 {
-	long double ld;
+    long double ld;
     std::stringstream ss(str);
     ss >> ld;
 
-    // Check for parsing errors
-    // if (ss.fail() || !ss.eof()) {
-    //     std::cout << "Error: Invalid input" << std::endl;
-	// 	return true; // Input was not a valid number
-    // }
-
-    // Check for overflow/underflow
     return (ld == std::numeric_limits<double>::infinity() || ld == -std::numeric_limits<double>::infinity() ||
-            ld > std::numeric_limits<double>::max() || ld < -std::numeric_limits<double>::max());
-	// long double ld;
-	// std::stringstream ss(str);
-	// ss >> ld;
-	
-	// if (ld == 0)
-	// 	return false;
-	// if (ld > std::numeric_limits<double>::max() || ld < std::numeric_limits<double>::min())
-	// {
-	// 	std::cout << "OVERRRRFLOOOw" << std::endl;
-	// 	return true;
-	// }
-	// return false;
+            ld > std::numeric_limits<double>::max() || ld < -std::numeric_limits<double>::max() ||
+            ld != static_cast<double>(ld));
 }
 
 //======================= Conversion functions =======================
@@ -116,6 +125,12 @@ int toInt(std::string const &str)
 
 float toFloat(std::string const &str)
 {
+	if (str.find("f") != std::string::npos)
+	{
+		std::string str2 = str.substr(0, str.length() - 1);
+		float f = toFloat(str2);
+		return f;
+	}
 	float f;
 	std::stringstream ss(str);
 	ss >> f;
@@ -140,7 +155,7 @@ char strToChar(std::string const &str, etype type)
 	}
 	else if (type == INT)
 	{
-        if (isIntOverflow(str) == true)
+        if (isIntOverflow(str, type) == true)
             return 0;
 		int i = toInt(str);
 		if (i >=32 && i <= 126)
@@ -151,7 +166,7 @@ char strToChar(std::string const &str, etype type)
 		if (isFloatOverflow(str) == true)
 			return 0;
 		float f = toFloat(str);
-		if (isIntOverflow(str) == true)
+		if (isIntOverflow(str, type) == true)
 			return 0;
 		int i = static_cast<int>(f);
 		if (i >=32 && i <= 126)
@@ -162,7 +177,7 @@ char strToChar(std::string const &str, etype type)
 		if (isDoubleOverflow(str) == true)
 			return 0;
 		double d = toDouble(str);
-		if (isIntOverflow(str) == true)
+		if (isIntOverflow(str, type) == true)
 			return 0;
 		int i = static_cast<int>(d);
 		if (i >=32 && i <= 126)

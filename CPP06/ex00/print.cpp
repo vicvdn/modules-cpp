@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:15:52 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/16 14:05:59 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:38:48 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 //======================= Printing functions =======================
 
-bool isOverflowPrint(std::string const &str)
+bool isOverflowPrint(std::string const &str, etype type)
 {
 	if (isDoubleOverflow(str) == true)
 		return true;
 	if (isFloatOverflow(str) == true)
 		return true;
-	if (isIntOverflow(str) == true)
+	if (isIntOverflow(str, type) == true)
 		return true;
 	return false;
 }
