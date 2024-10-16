@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:18:14 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/16 16:21:36 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/16 17:10:51 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ std::string longDoubleToStr(const long double input)
 
 bool isIntOverflow(std::string const &str, etype type)
 {
+	if (type == CHAR)
+		return false;
 	if (str.find("f") != std::string::npos)
 	{
 		std::string str2 = str.substr(0, str.length() - 1);
@@ -68,10 +70,7 @@ bool isIntOverflow(std::string const &str, etype type)
 	else
 	{
 		if (ss.fail() || !ss.eof())
-		{
-			std::cout << "Error: Invalid input" << std::endl;
 			return true;
-		}	
 	}
     return (d > std::numeric_limits<int>::max()
             || d < std::numeric_limits<int>::min()

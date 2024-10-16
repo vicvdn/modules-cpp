@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:11:15 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/16 15:50:22 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/16 17:18:13 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 // #include <cfloat>
 
 #define BOLDBLUE "\033[1m\033[34m"
+#define BOLDRED "\033[1m\033[31m"
 #define RESET "\033[0m"
 
 enum etype {

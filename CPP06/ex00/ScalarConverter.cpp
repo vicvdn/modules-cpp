@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:13:26 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/16 16:23:59 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/16 17:18:03 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,7 +215,7 @@ void ScalarConverter::convert(std::string const & str) {
 	etype type = getType(str);
 	if (type == UNKNOWN)
 	{
-		std::cerr << str << " is not a scalar type" << std::endl;
+		std::cerr << BOLDRED << str << " is not a scalar type" << RESET << std::endl;
 		return;	
 	}
 	

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   type.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:58:39 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/15 17:42:33 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/16 17:18:40 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ bool isDouble(std::string const &str){
 			return true;
 		}
 	}
+	if (isDoubleOverflow(str))
+		return false;
 	for (size_t i = 0; i < str.length(); i++) {
 		if (i == 0 && (str[i] == '+' || str[i] == '-')) {
 			continue;
@@ -119,19 +121,19 @@ bool isDouble(std::string const &str){
 
 etype getType(std::string const &str) {
 	if (isChar(str)) {
-		std::cout << BOLDBLUE << "CHAR" << RESET << std::endl;
+		std::cout << BOLDBLUE << "CHAR : " << str << RESET << std::endl;
 		return CHAR;
 	}
 	if (isInt(str)) {
-		std::cout << BOLDBLUE << "INT" << RESET << std::endl;
+		std::cout << BOLDBLUE << "INT : " << str << RESET << std::endl;
 		return INT;
 	}
 	if (isFloat(str)) {
-		std::cout << BOLDBLUE << "FLOAT" << RESET << std::endl;
+		std::cout << BOLDBLUE << "FLOAT : " << str << RESET << std::endl;
 		return FLOAT;
 	}
 	if (isDouble(str)) {
-		std::cout << BOLDBLUE << "DOUBLE" << RESET << std::endl;
+		std::cout << BOLDBLUE << "DOUBLE : " << str << RESET << std::endl;
 		return DOUBLE;
 	}
 	return UNKNOWN;
