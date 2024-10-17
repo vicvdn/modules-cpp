@@ -402,3 +402,34 @@ int main() {
     return 0;
 }
 ```
+
+## CPP07
+
+### ex01:
+
+#### 1. Template Definition
+
+```cpp
+template <typename T>
+void changeToZero(const T & element) {
+    T& nonConstElement = const_cast<T&>(element);
+    nonConstElement = 0;
+}
+```
+
+**Template Definition**: The line `template <typename T>` defines a function template that can operate with any type T. This allows the function to be instantiated for different types, such as int, double, std::string, etc.
+**Generic Behavior**: The function is designed to handle a wide range of types, providing a single implementation that can be reused.
+
+#### 2. Template Specialization
+
+```cpp
+template <>
+void changeToZero<std::string>(const std::string & element) {
+    std::string& nonConstElement = const_cast<std::string&>(element);
+    nonConstElement = "";
+}
+```
+
+**Template Specialization**: The line `template <>` indicates that this function is a full specialization of the template. This means you are providing a specific implementation for the type std::string.
+
+**Empty Angle Brackets** `(<>)`: The empty angle brackets indicate that this is a specialization and not a new template definition. It tells the compiler that you are overriding the generic template function with a specialized version for a specific type.
