@@ -353,3 +353,52 @@ int main() {
     return 0;
 }
 ```
+
+### ex02:
+
+- In C++, **dynamic_cast** is used for safely casting pointers or references to polymorphic types (i.e., classes that have at least one virtual function). It performs a type-safe downcast or cross-cast at runtime and returns different results based on whether the cast is successful or not.
+What dynamic_cast returns:
+
+* When casting to the right type (successful cast):
+        If the ***cast is successful, dynamic_cast returns a valid pointer*** (or reference) to the target type. The casted pointer can then be used to access the members of the target class.
+* When casting to the wrong type (unsuccessful cast):
+        If the ***cast is unsuccessful, the result depends on whether you are working with pointers or references***:
+
+    - **For pointers**:
+        If the cast fails, dynamic_cast returns nullptr.
+
+    - **For references**:
+        If the cast fails, dynamic_cast throws a std::bad_cast exception, indicating the cast wasn't possible.
+
+example of use:
+
+```cpp
+class Base {
+public:
+    virtual void doSomething() {
+        std::cout << "Base class doing something" << std::endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void doSomething() override {
+        std::cout << "Derived class doing something" << std::endl;
+    }
+};
+
+int main() {
+    Base* base = new Derived;
+    Derived* derived = dynamic_cast<Derived*>(base); // Downcast to derived class
+
+    if (derived) {
+        derived->doSomething();
+    } else {
+        std::cout << "Dynamic cast failed" << std::endl;
+    }
+
+    delete base;
+
+    return 0;
+}
+```
