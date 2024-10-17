@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 14:02:51 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/17 14:25:54 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/17 14:27:36 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,6 @@
 void printSeparator()
 {
 	std::cout << "---------------------------------" << std::endl;
-}
-
-template <typename T> void swap(T &a, T &b)
-{
-	T tmp = a;
-	a = b;
-	b = tmp;
-}
-
-template <typename T> T min(T &a, T &b)
-{
-	if (a < b)
-		return a;
-	else
-		return b;
-}
-
-template <typename T> T max(T &a, T &b)
-{
-	if (a > b)
-		return a;
-	else
-		return b;
 }
 
 int main(void)
