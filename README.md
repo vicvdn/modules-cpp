@@ -433,3 +433,13 @@ void changeToZero<std::string>(const std::string & element) {
 **Template Specialization**: The line `template <>` indicates that this function is a full specialization of the template. This means you are providing a specific implementation for the type std::string.
 
 **Empty Angle Brackets** `(<>)`: The empty angle brackets indicate that this is a specialization and not a new template definition. It tells the compiler that you are overriding the generic template function with a specialized version for a specific type.
+
+### ex02:
+
+In this exercise, we are asked to implement a class template. 
+
+- **Class Template**: A class template is a blueprint for creating classes that can work with any data type. It allows you to define a class that can operate with different types, providing a flexible and reusable solution.
+
+- **Template Parameters**: The line `template <typename T>` defines a class template with a single template parameter T. This parameter can be replaced with any data type when the class is instantiated.
+
+In the subject, it is mentionned we can use a .tpp file to separate the implementation of the template class from its declaration. This is a common practice in C++ to keep the code organized and maintainable. It doesn't have to be compiled, just included at the end of the header file where the class template is declared.
