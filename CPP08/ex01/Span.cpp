@@ -75,17 +75,9 @@ int Span::longestSpan()
 	
 	std::vector<int> tmp = this->vec;
 	std::sort(tmp.begin(), tmp.end());
-	
-	int max = std::numeric_limits<int>::min();
-	int diff = 0;
-	for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end(); it++)
-	{
-		for (std::vector<int>::iterator it2 = it + 1; it2 != tmp.end(); it2++)
-		{
-			diff = *it2 - *it;
-			if (diff > max)
-				max = diff;
-		}
-	}
-	return max;
+
+	int a = *std::max_element(this->vec.begin(), this->vec.end());
+	int b = *std::min_element(this->vec.begin(), this->vec.end());
+
+	return (abs(a - b));
 }
