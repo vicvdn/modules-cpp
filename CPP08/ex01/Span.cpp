@@ -30,18 +30,26 @@ Span & Span::operator=(Span const & rhs) {
 	return *this;
 }
 
+void Span::addRange(std::vector<int> &range)
+{
+	if (this->vec.size() + range.size() <= this->n)
+		this->vec.insert(this->vec.end(), range.begin(), range.end());
+	else
+		throw tooManyNumbers();
+}
+
 void Span::addNumber(int i) 
 {
 	if (this->vec.size() < this->n)
 		this->vec.push_back(i);
 	else
-		throw std::exception();
+		throw tooManyNumbers();
 }
 
 int Span::shortestSpan() 
 {
 	if (this->vec.size() < 2)
-		throw std::exception();
+		throw notEnoughNumbers();
 	
 	std::vector<int> tmp = this->vec;
 	std::sort(tmp.begin(), tmp.end());
@@ -63,7 +71,7 @@ int Span::shortestSpan()
 int Span::longestSpan() 
 {
 	if (this->vec.size() < 2)
-		throw std::exception();
+		throw notEnoughNumbers();
 	
 	std::vector<int> tmp = this->vec;
 	std::sort(tmp.begin(), tmp.end());

@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <algorithm>
+#include <vector>
+#include <limits>
 
 class Span {
 
@@ -28,6 +30,19 @@ class Span {
 		Span(Span const & src);
 		~Span();
 		Span & operator=(Span const & rhs);
+		class tooManyNumbers : public std::exception {
+			public : 
+			const char *what() const throw() {
+				return "Too many numbers in the span";
+			}
+		};
+		class notEnoughNumbers : public std::exception {
+			public : 
+			const char *what() const throw() {
+				return "Not enough numbers in the span";
+			}
+		};
+		void addRange(std::vector<int> &range);
 		void addNumber(int n);
 		int shortestSpan();
 		int longestSpan();
