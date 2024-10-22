@@ -13,7 +13,16 @@
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-template <typename T, typename Container = std::deque<T>> 
+#include <iostream>
+#include <stack>
+#include <deque>
+
+
+/*the stack is a container adapter, so it is not a container itself
+it uses a container to store its elements and the default container
+used is deque, which happens to have iterators */
+
+template <typename T, typename Container = std::deque<T> > 
 class MutantStack : public std::stack<T, Container>
 {
     public:
@@ -21,9 +30,11 @@ class MutantStack : public std::stack<T, Container>
         MutantStack(MutantStack const & src);
         ~MutantStack();
         MutantStack & operator=(MutantStack const & rhs);
-        // typedef typename Container::iterator iterator;
-        Container::iterator begin();
-        Container::iterator end();
+        typedef typename Container::iterator iterator;
+        iterator begin();
+        iterator end();
 };
+
+#include "MutantStack.tpp"
 
 #endif

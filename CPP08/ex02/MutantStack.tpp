@@ -12,27 +12,37 @@
 
 #include "MutantStack.hpp"
 
-MutantStack<T>::MutantStack() : std::stack<T>() {}
+template <typename T, typename Container>
+MutantStack<T, Container>::MutantStack() : std::stack<T, Container>() {}
 
-MutantStack<T>::MutantStack(MutantStack const & src) : std::stack<T>(src) {
+template <typename T, typename Container>
+MutantStack<T, Container>::MutantStack(MutantStack const & src) : std::stack<T>(src) {
     *this = src;
 }
 
-MutantStack<T>::~MutantStack() {}
+template <typename T, typename Container>
+MutantStack<T, Container>::~MutantStack() {}
 
-MutantStack<T> & MutantStack<T>::operator=(MutantStack const & rhs)
+template <typename T, typename Container>
+MutantStack<T, Container> & MutantStack<T, Container>::operator=(MutantStack const & rhs)
 {
     if (this != &rhs)
         std::stack<T>::operator=(rhs);
     return *this;
 }
 
-MutantStack<T>::iterator MutantStack<T>::begin()
+/* Here we use "typename" because the compiler needs to be 
+explicitly told that MutantStack<T, Container>::iterator is a type
+*/
+
+template <typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::begin()
 {
     return this->c.begin();
 }
 
-MutantStack<T>::iterator MutantStack<T>::end()
+template <typename T, typename Container>
+typename MutantStack<T, Container>::iterator MutantStack<T, Container>::end()
 {
     return this->c.end();
 }

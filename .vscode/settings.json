@@ -76,6 +76,10 @@
 		"__nullptr": "cpp",
 		"__string": "cpp",
 		"chrono": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"charconv": "cpp",
+		"list": "cpp",
+		"format": "cpp",
+		"text_encoding": "cpp"
 	}
 }
