@@ -443,3 +443,34 @@ In this exercise, we are asked to implement a class template.
 - **Template Parameters**: The line `template <typename T>` defines a class template with a single template parameter T. This parameter can be replaced with any data type when the class is instantiated.
 
 In the subject, it is mentionned we can use a .tpp file to separate the implementation of the template class from its declaration. This is a common practice in C++ to keep the code organized and maintainable. It doesn't have to be compiled, just included at the end of the header file where the class template is declared.
+
+## CPP08
+
+**Containers** are objects that store other objects. They provide a way to group and manage data in a structured way. The C++ Standard Library provides a variety of container classes that offer different features and performance characteristics. 
+Vectors, lists, and maps are some of the most commonly used container classes in C++.
+
+They each work with associated member functions that allow you to add, remove, and access elements in the container.
+
+**Iterators** are like pointers that allow you to go through (or "iterate" over) the elements of a container, such as a vector, list, or map, one by one. But some containers are not iterable (such as std::stack).
+
+### ex02:
+
+In this exercise, we are specifically **asked to make std::stack iterable**. ***But how should we proceed? ***
+
+It is important to note that `std::stack` is not directly iterable `because it is an adapter that hides the underlying container`.
+
+- first we need to access the underlying container: `std::stack is built on top of another container` (like `std::deque` or `std::vector`) which actually holds the data. You can access this underlying container by creating a custom subclass or by using a hack to access it directly.
+`
+```c++
+    template <typename T, typename Container = std::deque<T> >
+    class IterableStack : public std::stack<T, Container> {
+    public:
+
+        typedef typename Container::iterator iterator;
+
+        // Use the type aliases instead of typing out typename Container::iterator
+        iterator begin() { return this->c.begin(); }
+        iterator end() { return this->c.end(); }
+    }
+```
+`std::stack` is a template class that takes two template parameters: the type of the elements stored in the stack (T) and the type of the underlying container (Container). By default, the underlying container is set to `std::deque<T>`. This means that if no container type is specified when creating an IterableStack, it will use a `std::deque` as the default.
