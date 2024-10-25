@@ -9,7 +9,7 @@ GREEN 		:=	\033[0;92m
 CYAN 		:=	\033[0;96m
 
 # Sources and Objects
-SRC			:= main.cpp parsing.cpp
+SRC			:= main.cpp BitcoinExchange.cpp
 				
 BIN_DIR		:= ./bin
 OBJ			:= $(addprefix $(BIN_DIR)/,$(SRC:.cpp=.o))
