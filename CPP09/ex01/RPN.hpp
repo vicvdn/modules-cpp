@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:33:11 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/25 16:37:36 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:20:20 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 
 #include <iostream>
 #include <string>
-#include <deque>
+#include <stack>
 
 class RPN
 {
     private:
-        std::string _str;
+        std::string str;
     public:
         RPN();
         RPN(std::string str);
         RPN(const RPN &src);
+        RPN &operator=(const RPN &rhs);
         ~RPN();
-        void compute();
+        void compute(void);
 };
 
 #endif
