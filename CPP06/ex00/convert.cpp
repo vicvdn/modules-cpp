@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 15:18:14 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/16 17:10:51 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/28 11:14:54 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,17 +89,6 @@ bool isFloatOverflow(std::string const &str)
 			|| d < -std::numeric_limits<float>::max());
 }
 
-
-// bool isDoubleOverflow(std::string const &str)
-// {
-// 	long double ld;
-//     std::stringstream ss(str);
-//     ss >> ld;
-
-//     return (ld == std::numeric_limits<double>::infinity() || ld == -std::numeric_limits<double>::infinity() ||
-//             ld > std::numeric_limits<double>::max() || ld < -std::numeric_limits<double>::max());
-	
-// }
 
 bool isDoubleOverflow(std::string const &str)
 {

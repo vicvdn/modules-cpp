@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:36:12 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/16 17:19:24 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/28 11:14:08 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int main (int ac, char **av) {
 		return 1;
 	}
 	(void)av;
-	// ScalarConverter::convert(av[1]);
-	
+	ScalarConverter::convert(av[1]);
+	separatorPrint();
 	separatorPrint();
 	ScalarConverter::convert("-1.7976931348623158e+309");
 	separatorPrint();

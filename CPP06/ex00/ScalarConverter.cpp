@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:13:26 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/16 17:18:03 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/28 11:13:44 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void handleChar(std::string const &str, etype type)
 			return;
 		}
 		double d = toDouble(str);
-		if (isIntOverflow(str, type) == true)
+		if (isIntOverflow(str, type) == true || isSpecial(str) == true)
 		{
 			std::cout << "impossible" << std::endl;
 			return;
@@ -97,42 +97,6 @@ void handleChar(std::string const &str, etype type)
 			std::cout << "impossible" << std::endl;
 	}
 }
-
-// void handleChar(std::string const & str, etype type) 
-// {
-// 	std::cout << "char: ";
-// 	char charToPrint = strToChar(str, type);
-// 	if (charToPrint == 0)
-// 	{
-// 		if (isOverflowPrint(str, type))
-// 		{
-// 			std::cout << "impossible" << std::endl;
-// 			return;
-// 		}
-// 		else
-// 		{
-// 			int i;
-// 			std::stringstream ss(str);
-// 			ss >> i;
-// 			if (i >= 32 && i <= 126)
-// 			{
-// 				std::cout << static_cast<char>(i) << "'" << std::endl;
-// 				return;
-// 			}
-// 			else if ((i >= 0 && i <= 32) || i == 127)
-// 			{
-// 				std::cout << "Non displayable" << std::endl;
-// 				return;
-// 			}
-// 			else
-// 			{
-// 				std::cout << "impossible" << std::endl;
-// 				return;
-// 			}
-// 		}
-// 	}
-// 	printChar(charToPrint, str);
-// }
 
 void handleInt(std::string const & str, etype type) 
 {

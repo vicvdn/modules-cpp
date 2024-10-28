@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 14:11:15 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/16 17:18:13 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/28 11:15:18 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <sstream>
 #include <string>
 #include <limits>
-// #include <cfloat>
 
 #define BOLDBLUE "\033[1m\033[34m"
 #define BOLDRED "\033[1m\033[31m"
