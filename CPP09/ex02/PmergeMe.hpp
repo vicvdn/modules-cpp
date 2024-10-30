@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:53:55 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/29 17:06:52 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/10/30 14:58:26 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <sstream>
 #include <vector>
 #include <deque>
+#include <limits>
 
 class PmergeMe
 {
@@ -57,6 +58,8 @@ class PmergeMeVector : public PmergeMe
         bool isDuplicate(void);
         std::vector<int> getVec(void) const;
         void sortFJ();
+        std::vector<std::pair<int, int> > mergeSort(std::vector<std::pair<int, int> >& vec, int left, int right);
+        std::vector<std::pair<int, int> > merge(std::vector<std::pair<int, int> >& vec, int left, int mid, int right);
 };
 
 class PmergeMeDeque : public PmergeMe
