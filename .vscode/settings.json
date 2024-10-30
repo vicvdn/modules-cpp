@@ -80,6 +80,7 @@
 		"charconv": "cpp",
 		"list": "cpp",
 		"format": "cpp",
-		"text_encoding": "cpp"
+		"text_encoding": "cpp",
+		"map": "cpp"
 	}
 }
