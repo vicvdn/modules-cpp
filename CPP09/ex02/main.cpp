@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:52:37 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/28 17:01:21 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/29 16:21:04 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+bool parseString(std::string str)
+{
+    for (size_t i = 0; i < str.size(); i++)
+    {
+        if (str[i] != ' ' && str[i] != '\t' && (str[i] < '0' || str[i] > '9'))
+        {
+            std::cout << "Error: Invalid character in string" << std::endl;
+            return false;
+        }
+    }
+    return true;
+}
 
 int main(int ac, char **av)
 {
@@ -20,7 +33,17 @@ int main(int ac, char **av)
         return 1;
     }
     std::string str = av[1];
-    parseString(str);
+    if (parseString(str) == false)
+        return 1;
     PmergeMe pm(str);
-    pm.print();
+    try
+    {
+        pm.handleVector();
+        // pm.handleDeque();
+        // pm.print();
+    }
+    catch (std::exception & e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
