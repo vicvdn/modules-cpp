@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:53:55 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/30 14:58:26 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/31 18:16:45 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <vector>
 #include <deque>
 #include <limits>
+#include <sys/time.h>
 
 class PmergeMe
 {
@@ -49,6 +50,8 @@ class PmergeMeVector : public PmergeMe
 {
     private:
         std::vector<int> vec;
+        struct timeval start;
+        struct timeval end;
     public:
         PmergeMeVector();
         PmergeMeVector(std::string str);
@@ -60,6 +63,7 @@ class PmergeMeVector : public PmergeMe
         void sortFJ();
         std::vector<std::pair<int, int> > mergeSort(std::vector<std::pair<int, int> >& vec, int left, int right);
         std::vector<std::pair<int, int> > merge(std::vector<std::pair<int, int> >& vec, int left, int mid, int right);
+        void insertSort(std::vector<int> main, std::vector<int> pend);
 };
 
 class PmergeMeDeque : public PmergeMe

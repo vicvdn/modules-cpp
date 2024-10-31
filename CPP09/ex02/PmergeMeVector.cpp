@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMeVector.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:43:18 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/30 16:02:12 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/10/31 18:18:01 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static std::vector<std::pair<int, int> > makePairs(std::vector<int> vec)
 {
     std::vector<std::pair<int, int> > pairs;
     if (vec.size() % 2 != 0)
-        vec.push_back(std::numeric_limits<int>::max());
+        vec.push_back(std::numeric_limits<int>::min());
     for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it += 2)
     {
         if (it + 1 != vec.end())
@@ -133,9 +133,80 @@ std::vector<std::pair<int, int> > PmergeMeVector::mergeSort(std::vector<std::pai
     return ResultVec;
 }
 
+static std::vector<int> generateJacobstahlSequence(int limit) {
+    std::vector<int> sequence;
+    int a = 0, b = 1;
+    while (a <= limit) {
+        sequence.push_back(a);
+        int next = a + 2 * b;
+        a = b;
+        b = next;
+    }
+    if (!sequence.empty() && sequence[0] == 0) 
+        sequence.erase(sequence.begin());
+    return sequence;
+}
+
+static int BinarySearch(std::vector<int>& vec, int& value){
+  int left = 0;
+  int right = vec.size() - 1;
+  int mid;
+  while (left <= right)
+  {
+    mid = floor( (left + right) / 2 );
+    if (vec[mid] < value)
+      left = mid + 1;
+    else if (vec[mid] > value)
+      right = mid - 1;
+    else
+      return mid;
+  }
+  return right;
+}
+
+void PmergeMeVector::insertSort(std::vector<int> main, std::vector<int> pend)
+{
+    //let's insert the elements of pend in main in a sorted way using the jacobsthal sequence
+    std::vector<int> jacobsthal = generateJacobstahlSequence(pend.size());
+    
+    int toInsert;
+    int gap;
+    std::vector<int>::reverse_iterator ritPendStart = pend.rend();
+    std::vector<int>::reverse_iterator ritPendEnd = pend.rend();
+    for (size_t i = 0; i < pend.size(); i++) {
+        ritPendEnd = ritPendStart;
+        if (i + jacobsthal[i] < pend.size() - 1) {
+            ritPendStart = ritPendEnd - jacobsthal[i];
+        } else {
+            ritPendStart = pend.rbegin();
+        }
+        for (std::vector<int>::reverse_iterator rit = ritPendStart; rit != ritPendEnd; rit++) {
+            toInsert = *rit;
+            gap = BinarySearch(main, toInsert);
+            try {
+                main.insert(main.begin() + gap + 1, toInsert);
+            } catch (std::out_of_range) {
+                main.insert(main.begin() + gap, toInsert);
+            }
+        }
+    }
+    this->vec = main;
+}
+
+static void printVec(std::vector<int> vec)
+{
+    for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
+}
+
 void PmergeMeVector::sortFJ()
 {
-    int size = this->vec.size();
+    gettimeofday(&start, NULL);
+    unsigned long size = this->vec.size();
+    std::cout << "size: " << size << std::endl;
     if (size == 1)
         return;
     if (size >= 2)
@@ -155,7 +226,23 @@ void PmergeMeVector::sortFJ()
             main.push_back(it->first);
             pend.push_back(it->second);
         }
-        
+        if (main.size() + pend.size() != size)
+        {
+            std::vector<int>::iterator it = std::find(pend.begin(), pend.end(), std::numeric_limits<int>::min());
+            std::vector<int>::iterator it2 = std::find(main.begin(), main.end(), std::numeric_limits<int>::min());
+            if (it != pend.end())
+                pend.erase(it);
+            if (it2 != main.end())
+                main.erase(it2);
+        }
+        insertSort(main, pend);
     }
-	
+    gettimeofday(&end, NULL);
+    std::cout << "After: ";
+	printVec(this->vec);
+
+    long duration = ((end.tv_sec - start.tv_sec) * 1000000) + (end.tv_usec - start.tv_usec);
+    std::cout << "Time to process a range of " << size 
+    << " elements with std::vector : " << duration << " us" 
+    << std::endl;
 }
