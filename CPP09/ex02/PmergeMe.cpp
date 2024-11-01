@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 17:02:09 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/29 17:00:17 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/01 11:04:40 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,9 @@ const char *PmergeMe::DuplicateException::what() const throw()
     return "Error: Duplicate number";
 }
 
-void PmergeMe::handleVector()
+std::string PmergeMe::getStr(void) const
 {
-    PmergeMeVector vec(str);
-    if (vec.isDuplicate() == true)
-        throw PmergeMe::DuplicateException();
-    vec.sortFJ();
+    return this->str;
 }
 
 

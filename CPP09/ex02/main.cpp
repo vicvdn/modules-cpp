@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
+/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:52:37 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/30 11:30:06 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:23:05 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,15 @@ int main(int ac, char **av)
     std::string str = av[1];
     if (parseString(str) == false)
         return 1;
-    std::cout << "Before : " << str << std::endl;
     try
     {
         PmergeMeVector vec(str);
-        vec.handleVector();
-        // PmergeMeDeque deq(str);
-        // pm.handleDeque();
-        // pm.print();
+        vec.parseVector();
+        std::cout << BOLDRED << "Before : " << RESET << str << std::endl;
+        vec.sortFJ();
+        PmergeMeDeque deq(str);
+        deq.parseDeque();
+        deq.sortFJ();
     }
     catch (std::exception & e)
     {

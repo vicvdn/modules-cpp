@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:43:18 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/31 18:18:01 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/01 12:20:39 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ PmergeMeVector & PmergeMeVector::operator=(PmergeMeVector const & src)
 	if (this != &src)
 		this->vec = src.vec;
 	return *this;
+}
+
+void PmergeMeVector::parseVector()
+{
+    PmergeMeVector vec(getStr());
+    if (vec.isDuplicate() == true)
+        throw PmergeMe::DuplicateException();
 }
 
 void PmergeMeVector::createVector(std::string str)
@@ -204,9 +211,8 @@ static void printVec(std::vector<int> vec)
 
 void PmergeMeVector::sortFJ()
 {
-    gettimeofday(&start, NULL);
+    clock_t startTime = clock();
     unsigned long size = this->vec.size();
-    std::cout << "size: " << size << std::endl;
     if (size == 1)
         return;
     if (size >= 2)
@@ -237,12 +243,9 @@ void PmergeMeVector::sortFJ()
         }
         insertSort(main, pend);
     }
-    gettimeofday(&end, NULL);
-    std::cout << "After: ";
+    time = (clock() - startTime) / (double) CLOCKS_PER_SEC * 1000; // in ms
+    std::cout << BOLDGREEN << "After: " << RESET;
 	printVec(this->vec);
-
-    long duration = ((end.tv_sec - start.tv_sec) * 1000000) + (end.tv_usec - start.tv_usec);
-    std::cout << "Time to process a range of " << size 
-    << " elements with std::vector : " << duration << " us" 
-    << std::endl;
+    std::cout << BOLDBLUE << "Time to process a range of " << size 
+    << " elements with std::vector : " << RESET << time << " us" << std::endl;
 }

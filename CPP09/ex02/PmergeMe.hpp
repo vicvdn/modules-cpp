@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:53:55 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/31 18:16:45 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/01 12:20:06 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,13 @@
 #include <vector>
 #include <deque>
 #include <limits>
-#include <sys/time.h>
+#include <ctime>
+
+#define BOLDBLUE "\033[1m\033[34m"
+#define BOLDRED "\033[1m\033[31m"
+#define BOLDGREEN "\033[1m\033[32m"
+#define BOLDYELLOW "\033[1m\033[33m"
+#define RESET "\033[0m"
 
 class PmergeMe
 {
@@ -40,7 +46,7 @@ class PmergeMe
             public:
                 virtual const char *what() const throw();
         };
-        void handleVector();
+        std::string getStr(void) const;
         // void handleDeque();
         virtual void sortFJ() = 0;
         // void print();
@@ -50,13 +56,13 @@ class PmergeMeVector : public PmergeMe
 {
     private:
         std::vector<int> vec;
-        struct timeval start;
-        struct timeval end;
+        double time;
     public:
         PmergeMeVector();
         PmergeMeVector(std::string str);
         PmergeMeVector(PmergeMeVector const & src);
         PmergeMeVector & operator=(PmergeMeVector const & src);
+        void parseVector();
         void createVector(std::string str);
         bool isDuplicate(void);
         std::vector<int> getVec(void) const;
@@ -70,11 +76,20 @@ class PmergeMeDeque : public PmergeMe
 {
     private:
         std::deque<int> deq;
+        double time;
     public:
         PmergeMeDeque();
         PmergeMeDeque(std::string str);
         PmergeMeDeque(PmergeMeDeque const & src);
         PmergeMeDeque & operator=(PmergeMeDeque const & src);
+        void parseDeque();
+        void createDeque(std::string str);
+        bool isDuplicate(void);
+        std::deque<int> getDeq(void) const;
+        void sortFJ();
+        std::deque<std::pair<int, int> > mergeSort(std::deque<std::pair<int, int> >& deq, int left, int right);
+        std::deque<std::pair<int, int> > merge(std::deque<std::pair<int, int> >& deq, int left, int mid, int right);
+        void insertSort(std::deque<int> main, std::deque<int> pend);
 };
 
 #endif
