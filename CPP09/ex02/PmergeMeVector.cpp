@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:43:18 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/11/01 12:20:39 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/01 12:30:39 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,11 +200,22 @@ void PmergeMeVector::insertSort(std::vector<int> main, std::vector<int> pend)
     this->vec = main;
 }
 
-static void printVec(std::vector<int> vec)
+static void printVec(std::vector<int> vec, int size)
 {
-    for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+    if (size > 10)
     {
-        std::cout << *it << " ";
+        for (int i = 0; i < 10; i++)
+        {
+            std::cout << vec[i] << " ";
+        }
+        std::cout << "[...]";
+    }
+    else
+    {
+        for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+        {
+            std::cout << *it << " ";
+        }
     }
     std::cout << std::endl;
 }
@@ -213,6 +224,7 @@ void PmergeMeVector::sortFJ()
 {
     clock_t startTime = clock();
     unsigned long size = this->vec.size();
+    printVec(this->vec, size);
     if (size == 1)
         return;
     if (size >= 2)
@@ -245,7 +257,7 @@ void PmergeMeVector::sortFJ()
     }
     time = (clock() - startTime) / (double) CLOCKS_PER_SEC * 1000; // in ms
     std::cout << BOLDGREEN << "After: " << RESET;
-	printVec(this->vec);
+	printVec(this->vec, size);
     std::cout << BOLDBLUE << "Time to process a range of " << size 
     << " elements with std::vector : " << RESET << time << " us" << std::endl;
 }

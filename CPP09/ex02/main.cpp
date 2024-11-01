@@ -6,7 +6,7 @@
 /*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:52:37 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/11/01 12:23:05 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/01 12:37:47 by victoirevau      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,31 @@ bool parseString(std::string str)
 
 int main(int ac, char **av)
 {
-    if (ac != 2)
+    if (ac < 2)
     {
         std::cout << "Usage : ./exec list_of_numbers" << std::endl;
         return 1;
     }
-    std::string str = av[1];
+    std::string str;
+    if (ac > 2)
+    {
+        std::stringstream ss;
+        for (int i = 1; i < ac; i++)
+        {
+            ss << av[i];
+            ss << " ";
+        }
+        str = ss.str();
+    }
+    else
+        str = av[1];
     if (parseString(str) == false)
         return 1;
     try
     {
         PmergeMeVector vec(str);
         vec.parseVector();
-        std::cout << BOLDRED << "Before : " << RESET << str << std::endl;
+        std::cout << BOLDRED << "Before : " << RESET;
         vec.sortFJ();
         PmergeMeDeque deq(str);
         deq.parseDeque();
