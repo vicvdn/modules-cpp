@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMeVector.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:43:18 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/11/01 12:30:39 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/04 12:13:11 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ void printPairVec(std::vector<std::pair<int, int> > pairs)
     }
     std::cout << std::endl;
 }
+
+// The merge function takes two sorted halves (vec[left to mid] and vec[mid + 1 to right]) and merges them in sorted order into ResultVec.
 
 std::vector<std::pair<int, int> > PmergeMeVector::merge(std::vector<std::pair<int, int> >& vec, int left, int mid, int right)
 {
@@ -233,7 +235,7 @@ void PmergeMeVector::sortFJ()
         this->vec.clear();
         for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); it++)
         {
-            if (it->first > it->second)
+            if (it->first < it->second)
                 std::swap(it->first, it->second);
         }
         std::vector<std::pair<int, int> > res = mergeSort(pairs, 0, pairs.size() - 1);

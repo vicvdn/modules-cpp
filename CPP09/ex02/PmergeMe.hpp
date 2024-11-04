@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:53:55 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/11/01 12:20:06 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/04 11:34:15 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <deque>
 #include <limits>
 #include <ctime>
+#include <algorithm>
+#include <cmath>
 
 #define BOLDBLUE "\033[1m\033[34m"
 #define BOLDRED "\033[1m\033[31m"

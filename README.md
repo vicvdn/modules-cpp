@@ -474,3 +474,34 @@ It is important to note that `std::stack` is not directly iterable `because it i
     }
 ```
 `std::stack` is a template class that takes two template parameters: the type of the elements stored in the stack (T) and the type of the underlying container (Container). By default, the underlying container is set to `std::deque<T>`. This means that if no container type is specified when creating an IterableStack, it will use a `std::deque` as the default.
+
+## CPP09
+
+### ex02:
+
+I took a few days to properly understand how the **Ford-Johnson algorithm** works. From what I understood, I first needed to make pairs, then sort them internally, placing the biggest element first. After that I found I had to implement a merge sort algorithm to sort the pairs by the first element in ascending order. Which led me to first :
+- search for a proper explanation of a merge sort which I found on [this website](https://www.bbc.co.uk/bitesize/guides/zjdkw6f/revision/5).
+- and to then implement an insertion sort once my pairs had been sorted and subdivided into two containers (I chose vectors and deque for this exercise since we were asked to pick two). One containing the biggest elements and the other the smallest ones.
+
+Example of the merge sort algorithm:
+
+### **Example Walkthrough**: 
+```Suppose vec contains {{4, 1}, {2, 2}, {5, 3}, {1, 4}, {3, 5}}.```
+
+Initial call: mergeSort(vec, 0, 4).
+
+Split into mergeSort(vec, 0, 2) and mergeSort(vec, 3, 4).
+Continue splitting until subarrays have one element.
+
+Merge step starts:
+    merge(vec, 0, 0, 1) merges {{4, 1}} and {{2, 2}} to {{2, 2}, {4, 1}}.
+    The merging continues up to the full array.
+    merge(vec, 0, 1, 2) merges {{2, 2}, {4, 1}} and {{5, 3}} to {{2, 2}, {4, 1}, {5, 3}}.
+
+Final merged and sorted vec is returned.
+
+### Useful resources:
+
+Throughout the entire exercise, these links helped me :
+- [FJ algorithm](https://www.linkedin.com/posts/nerraou_ford-johnson-merge-insertion-sort-activity-7076577075712675840-AJ1l)
+- [Romain's notes](https://github.com/Tablerase/42_Projects/blob/main/Projects/CPP_Modules/cpp-exercices.md)
