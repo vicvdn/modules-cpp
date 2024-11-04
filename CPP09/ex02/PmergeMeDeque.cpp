@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:41:41 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/11/04 15:41:38 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:22:44 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,6 @@ static std::deque<std::pair<int, int> > makePairs(std::deque<int> deq)
     }
     return pairs;
 }
-//to remove
-void printPairDeq(std::deque<std::pair<int, int> > pairs)
-{
-    for (std::deque<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end(); it++)
-    {
-        std::cout << it->first << " " << it->second << " ";
-    }
-    std::cout << std::endl;
-}
 
 std::deque<std::pair<int, int> > PmergeMeDeque::merge(std::deque<std::pair<int, int> >& deq, int left, int mid, int right)
 {
@@ -173,7 +164,6 @@ static int BinarySearch(std::deque<int>& deq, int& value){
 
 void PmergeMeDeque::insertSort(std::deque<int>& main, std::deque<int> &pend)
 {
-    //let's insert the elements of pend in main in a sorted way using the jacobsthal sequence
     std::deque<int> jacobsthal = generateJacobstahlSequence(pend.size());
     
     int toInsert;
@@ -223,6 +213,14 @@ void PmergeMeDeque::insertSort(std::deque<int>& main, std::deque<int> &pend)
 //     std::cout << std::endl;
 // }
 
+void PmergeMeDeque::printDeque(unsigned long size, clock_t startTime)
+{
+    time = (clock() - startTime) / (double) CLOCKS_PER_SEC * 1000; // in ms
+	// printDeq(this->deq);
+    std::cout << BOLDYELLOW << "Time to process a range of " << size 
+    << " elements with std::deque : " << RESET << time << " us" << std::endl;
+}
+
 void PmergeMeDeque::sortFJ()
 {
     clock_t startTime = clock();
@@ -257,8 +255,5 @@ void PmergeMeDeque::sortFJ()
         }
         insertSort(main, pend);
     }
-    time = (clock() - startTime) / (double) CLOCKS_PER_SEC * 1000; // in ms
-	// printDeq(this->deq);
-    std::cout << BOLDYELLOW << "Time to process a range of " << size 
-    << " elements with std::deque : " << RESET << time << " us" << std::endl;
+    printDeque(size, startTime);
 }

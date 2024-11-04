@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:43:18 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/11/04 13:50:50 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/11/04 16:25:27 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,6 @@ static int BinarySearch(std::vector<int>& vec, int& value){
 
 void PmergeMeVector::insertSort(std::vector<int> main, std::vector<int> pend)
 {
-    //let's insert the elements of pend in main in a sorted way using the jacobsthal sequence
     std::vector<int> jacobsthal = generateJacobstahlSequence(pend.size());
     
     int toInsert;
@@ -197,11 +196,7 @@ void PmergeMeVector::insertSort(std::vector<int> main, std::vector<int> pend)
             toInsert = *rit;
             
             gap = BinarySearch(main, toInsert);
-            
-            // if (gap >= 0 && gap < static_cast<int>(main.size()))
-            //     main.insert(main.begin() + gap + 1, toInsert);
-            // else
-            //     main.insert(main.begin() + gap, toInsert);
+
             try {
                 main.insert(main.begin() + gap + 1, toInsert);
             } catch (std::out_of_range) {
@@ -217,19 +212,24 @@ static void printVec(std::vector<int> vec, int size)
     if (size > 10)
     {
         for (int i = 0; i < 10; i++)
-        {
             std::cout << vec[i] << " ";
-        }
         std::cout << "[...]";
     }
     else
     {
         for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
-        {
             std::cout << *it << " ";
-        }
     }
     std::cout << std::endl;
+}
+
+void PmergeMeVector::printVector(unsigned long size, clock_t startTime)
+{
+    time = (clock() - startTime) / (double) CLOCKS_PER_SEC * 1000; // in ms
+    std::cout << BOLDGREEN << "After: " << RESET;
+	printVec(this->vec, size);
+    std::cout << BOLDBLUE << "Time to process a range of " << size 
+    << " elements with std::vector : " << RESET << time << " us" << std::endl;
 }
 
 void PmergeMeVector::sortFJ()
@@ -267,9 +267,5 @@ void PmergeMeVector::sortFJ()
         }
         insertSort(main, pend);
     }
-    time = (clock() - startTime) / (double) CLOCKS_PER_SEC * 1000; // in ms
-    std::cout << BOLDGREEN << "After: " << RESET;
-	printVec(this->vec, size);
-    std::cout << BOLDBLUE << "Time to process a range of " << size 
-    << " elements with std::vector : " << RESET << time << " us" << std::endl;
+    printVector(size, startTime);
 }
