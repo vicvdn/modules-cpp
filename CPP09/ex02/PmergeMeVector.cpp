@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:43:18 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/11/04 12:13:11 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:50:50 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,14 +184,24 @@ void PmergeMeVector::insertSort(std::vector<int> main, std::vector<int> pend)
     std::vector<int>::reverse_iterator ritPendEnd = pend.rend();
     for (size_t i = 0; i < pend.size(); i++) {
         ritPendEnd = ritPendStart;
-        if (i + jacobsthal[i] < pend.size() - 1) {
+        if (i < jacobsthal.size() && i + jacobsthal[i] < pend.size())
             ritPendStart = ritPendEnd - jacobsthal[i];
-        } else {
+        else
             ritPendStart = pend.rbegin();
-        }
-        for (std::vector<int>::reverse_iterator rit = ritPendStart; rit != ritPendEnd; rit++) {
+
+        if (ritPendStart < pend.rbegin() || ritPendStart > pend.rend())
+            ritPendStart = pend.rbegin();
+        
+        for (std::vector<int>::reverse_iterator rit = ritPendStart; rit != ritPendEnd; rit++)
+        {
             toInsert = *rit;
+            
             gap = BinarySearch(main, toInsert);
+            
+            // if (gap >= 0 && gap < static_cast<int>(main.size()))
+            //     main.insert(main.begin() + gap + 1, toInsert);
+            // else
+            //     main.insert(main.begin() + gap, toInsert);
             try {
                 main.insert(main.begin() + gap + 1, toInsert);
             } catch (std::out_of_range) {

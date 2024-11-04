@@ -6,7 +6,7 @@
 /*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 16:53:55 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/11/04 11:34:15 by vvaudain         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:25:36 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ class PmergeMeDeque : public PmergeMe
         void sortFJ();
         std::deque<std::pair<int, int> > mergeSort(std::deque<std::pair<int, int> >& deq, int left, int right);
         std::deque<std::pair<int, int> > merge(std::deque<std::pair<int, int> >& deq, int left, int mid, int right);
-        void insertSort(std::deque<int> main, std::deque<int> pend);
+        void insertSort(std::deque<int>& main, std::deque<int>& pend);
 };
 
 #endif

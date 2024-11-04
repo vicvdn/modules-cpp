@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMeDeque.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:41:41 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/11/01 12:22:08 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/04 15:41:38 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,31 +171,45 @@ static int BinarySearch(std::deque<int>& deq, int& value){
   return right;
 }
 
-void PmergeMeDeque::insertSort(std::deque<int> main, std::deque<int> pend)
+void PmergeMeDeque::insertSort(std::deque<int>& main, std::deque<int> &pend)
 {
     //let's insert the elements of pend in main in a sorted way using the jacobsthal sequence
     std::deque<int> jacobsthal = generateJacobstahlSequence(pend.size());
     
     int toInsert;
-    int gap;
+    int pos;
+    int gap = 0;
     std::deque<int>::reverse_iterator ritPendStart = pend.rend();
     std::deque<int>::reverse_iterator ritPendEnd = pend.rend();
-    for (size_t i = 0; i < pend.size(); i++) {
+    for (size_t i = 0; i < pend.size(); i++) 
+    {
         ritPendEnd = ritPendStart;
-        if (i + jacobsthal[i] < pend.size() - 1) {
-            ritPendStart = ritPendEnd - jacobsthal[i];
-        } else {
-            ritPendStart = pend.rbegin();
+        if (static_cast<size_t>(gap) < jacobsthal.size() && i + jacobsthal[gap] < pend.size())
+        {
+            if (jacobsthal[gap] > std::distance(ritPendEnd, pend.rend()))
+                ritPendStart = pend.rend(); // Prevents the iterator from going out of range
+            else
+                ritPendStart = ritPendEnd - jacobsthal[gap];
         }
-        for (std::deque<int>::reverse_iterator rit = ritPendStart; rit != ritPendEnd; rit++) {
+        else
+            ritPendStart = pend.rbegin();
+
+        if (ritPendStart < pend.rbegin() || ritPendStart > pend.rend())
+            ritPendStart = pend.rbegin();
+
+        for (std::deque<int>::reverse_iterator rit = ritPendStart; rit != ritPendEnd; rit++)
+        {
             toInsert = *rit;
-            gap = BinarySearch(main, toInsert);
+            
+            pos = BinarySearch(main, toInsert);
+            
             try {
-                main.insert(main.begin() + gap + 1, toInsert);
+                main.insert(main.begin() + pos + 1, toInsert);
             } catch (std::out_of_range) {
-                main.insert(main.begin() + gap, toInsert);
+                main.insert(main.begin() + pos, toInsert);
             }
         }
+        gap++;
     }
     this->deq = main;
 }
