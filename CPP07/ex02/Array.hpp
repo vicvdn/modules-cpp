@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 16:11:06 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/17 16:43:33 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/05 15:39:36 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,10 @@ template <typename T> class Array {
 		Array(unsigned int n);
 		Array(const Array &copy);
 		~Array();
-		// Array &operator=(const Array &copy);
+		Array &operator=(const Array &copy);
 		T &operator[](unsigned int i);
+		const T &operator[](unsigned int i) const;
 		unsigned int size() const;
-		// class out_of_range: public std::exception {
-		// public:
-		// 	virtual const char* what(void) const throw();
-		// };
-
 };
 
 #include "Array.tpp"

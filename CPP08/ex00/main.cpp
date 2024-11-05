@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:45:48 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/19 16:19:39 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/05 16:58:28 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(void)
 	try
 	{
 		std::cout << BOLDGREEN << easyfind(vec, 5) << RESET << std::endl;
+		std::cout << BOLDBLUE << easyfind(vec, 9) << RESET << std::endl;
 		std::cout << BOLDGREEN << easyfind(vec, 42) << RESET << std::endl;
 	}
 	catch (std::exception &e)

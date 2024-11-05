@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:30:52 by victoirevau       #+#    #+#             */
-/*   Updated: 2024/10/18 12:52:29 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/05 16:56:55 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EASYFIND_HPP
 
 #include <iostream>
+#include <algorithm>
 
 #define BOLDBLUE "\033[1m\033[34m"
 #define BOLDRED "\033[1m\033[31m"

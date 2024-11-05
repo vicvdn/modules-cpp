@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victoirevaudaine <victoirevaudaine@stud    +#+  +:+       +#+        */
+/*   By: vvaudain <vvaudain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:40:10 by vvaudain          #+#    #+#             */
-/*   Updated: 2024/10/23 12:22:13 by victoirevau      ###   ########.fr       */
+/*   Updated: 2024/11/05 16:56:40 by vvaudain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stack>
 #include <deque>
 #include <sstream>
+#include <list>
 
 #define BOLDBLUE "\033[1m\033[34m"
 #define RESET "\033[0m"
